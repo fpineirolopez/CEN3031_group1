@@ -5,6 +5,7 @@ using System.Collections;
 //Nozomi Watanabe 
 //John Mooney
 //Mitchell Joppru
+//Felipe Pineiro
 
 
 public class Sample : MonoBehaviour {
