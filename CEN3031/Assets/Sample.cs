@@ -6,7 +6,7 @@ using System.Collections;
 //John Mooney
 //Mitchell Joppru x2
 //Felipe Pineiro
-//Nicholas Young
+//Nicholas Young x2
 
 
 public class Sample : MonoBehaviour {
