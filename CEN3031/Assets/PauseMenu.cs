@@ -8,6 +8,11 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject PauseMenuUI; //used for bringing up UI
 
+	//This is called when this script is loaded.
+	void Start(){
+		PauseMenuUI.SetActive (false);
+	}
+
     //Update is called once per frame
     void Update () {
         if (Input.GetKeyDown(KeyCode.Escape)) //when pressing 'Esc', it checks if the game is paused or not
