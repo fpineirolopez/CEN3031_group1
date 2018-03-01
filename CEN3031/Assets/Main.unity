@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1522859514}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!4 &317838407
@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df46d026fd8d7ca47b3b08550905cd8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
 --- !u!50 &728306941
 Rigidbody2D:
   serializedVersion: 4
