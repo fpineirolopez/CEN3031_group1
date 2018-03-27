@@ -35,5 +35,48 @@ public class PlayerClass : MonoBehaviour
         //Move the player based on the player's speed/ movement vector, and time between frames.
         rb2d.MovePosition(rb2d.position + movement * speed * Time.fixedDeltaTime);
 
+        // Shooting up
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            WeaponFire weapon = GetComponent<WeaponFire>();
+            if (weapon != null)
+            {
+                // false because the player is not an enemy
+                weapon.AttackUp(false);
+            }
+        }
+
+        // Shooting down
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            WeaponFire weapon = GetComponent<WeaponFire>();
+            if (weapon != null)
+            {
+                // false because the player is not an enemy
+                weapon.AttackDown(false);
+            }
+        }
+
+        // Shooting right
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            WeaponFire weapon = GetComponent<WeaponFire>();
+            if (weapon != null)
+            {
+                // false because the player is not an enemy
+                weapon.AttackRight(false);
+            }
+        }
+
+        // Shooting left
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            WeaponFire weapon = GetComponent<WeaponFire>();
+            if (weapon != null)
+            {
+                // false because the player is not an enemy
+                weapon.AttackLeft(false);
+            }
+        }
     }
 }
