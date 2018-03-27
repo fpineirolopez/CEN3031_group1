@@ -631,7 +631,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  movement: {x: 0, y: 0}
+  range: 10
+  damage: 1
+  fire_rate: 0.25
+  shot_speed: 10
 --- !u!50 &728306941
 Rigidbody2D:
   serializedVersion: 4
@@ -651,7 +654,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &728306942
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -689,7 +692,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 4533708081742398, guid: 4bf52df7f637c57469f60a6d222b4b0d, type: 2}
-  shootingRate: 0.15
 --- !u!1 &745068324
 GameObject:
   m_ObjectHideFlags: 0
