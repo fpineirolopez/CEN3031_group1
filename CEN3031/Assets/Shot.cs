@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Shot : MonoBehaviour {
   
+    //How do you get range and speed?
+    //Passing of variables between scripts is difficult
+
     // Damage inflicted
-    public int dmg = 1;
+    public int dmg;
+    public float range;
+    public float shot_speed;
+    
 
     // Projectile damage player or enemies?
     public bool isEnemyShot = false;
@@ -13,7 +19,15 @@ public class Shot : MonoBehaviour {
     void Start()
     {
         // 2 - Limited time to live to avoid any leak
-        Destroy(gameObject, 2); // 2sec
+        Destroy(gameObject, range / shot_speed); // range divided by velocity
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if ((collision.tag == "Enviroment"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
 
