@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - EProjectile
   - Enviroment
+  - ELaser
   layers:
   - Default
   - TransparentFX
@@ -43,6 +44,9 @@ TagManager:
   m_SortingLayers:
   - name: Background
     uniqueID: 1785548217
+    locked: 0
+  - name: laser
+    uniqueID: 3961593269
     locked: 0
   - name: Enemy
     uniqueID: 2540067765

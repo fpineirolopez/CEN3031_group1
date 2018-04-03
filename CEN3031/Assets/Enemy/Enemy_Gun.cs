@@ -10,7 +10,7 @@ public class Enemy_Gun : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		//Invoke ("fireProjectile",1f);
+		
 	}
 	
 	// Update is called once per frame
