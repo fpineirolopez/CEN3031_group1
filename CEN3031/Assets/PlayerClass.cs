@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PlayerClass : MonoBehaviour
 {
-    
-    private Rigidbody2D rb2d; 
     public float speed;
-    public Vector2 movement = new Vector2(0, 0);
+    public float range;
+    public int damage;
+    public float fire_rate;
+    public float shot_speed;
+
+    private Rigidbody2D rb2d;
+    private Vector2 movement = new Vector2(0, 0);
+
 
     //Player controller script created and used for offloading logic and calculations to testable interface
     public Player_control pctrl = new Player_control();
@@ -36,9 +41,15 @@ public class PlayerClass : MonoBehaviour
         rb2d.MovePosition(rb2d.position + movement * speed * Time.fixedDeltaTime);
 
         // Shooting up
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             WeaponFire weapon = GetComponent<WeaponFire>();
+            weapon.set_dmg(damage);
+            weapon.set_fire_rate(fire_rate);
+            weapon.set_range(range);
+            weapon.set_shot_speed(shot_speed);
+
+
             if (weapon != null)
             {
                 // false because the player is not an enemy
@@ -47,9 +58,14 @@ public class PlayerClass : MonoBehaviour
         }
 
         // Shooting down
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             WeaponFire weapon = GetComponent<WeaponFire>();
+            weapon.set_dmg(damage);
+            weapon.set_fire_rate(fire_rate);
+            weapon.set_range(range);
+            weapon.set_shot_speed(shot_speed);
+
             if (weapon != null)
             {
                 // false because the player is not an enemy
@@ -58,9 +74,14 @@ public class PlayerClass : MonoBehaviour
         }
 
         // Shooting right
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             WeaponFire weapon = GetComponent<WeaponFire>();
+            weapon.set_dmg(damage);
+            weapon.set_fire_rate(fire_rate);
+            weapon.set_range(range);
+            weapon.set_shot_speed(shot_speed);
+
             if (weapon != null)
             {
                 // false because the player is not an enemy
@@ -69,9 +90,14 @@ public class PlayerClass : MonoBehaviour
         }
 
         // Shooting left
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             WeaponFire weapon = GetComponent<WeaponFire>();
+            weapon.set_dmg(damage);
+            weapon.set_fire_rate(fire_rate);
+            weapon.set_range(range);
+            weapon.set_shot_speed(shot_speed);
+
             if (weapon != null)
             {
                 // false because the player is not an enemy

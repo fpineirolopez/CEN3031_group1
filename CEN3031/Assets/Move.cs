@@ -5,7 +5,7 @@ using UnityEngine;
 public class Move : MonoBehaviour {
 
     // Object speed
-    public Vector2 speed = new Vector2(10, 10);
+    public Vector2 speed;
 
     // Moving direction
     public Vector2 direction = new Vector2(1, 0);
