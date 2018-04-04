@@ -10,10 +10,10 @@ public class PlayerClass : MonoBehaviour
     public float fire_rate;
     public float shot_speed;
 
-    public bool test_key_up;
-    public bool test_key_left;
-    public bool test_key_right;
-    public bool test_key_down;
+    public bool test_key_up = false;
+    public bool test_key_left = false;
+    public bool test_key_right = false;
+    public bool test_key_down = false;
 
 
     private Rigidbody2D rb2d;
