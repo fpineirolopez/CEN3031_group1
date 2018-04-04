@@ -59,7 +59,7 @@ public class PlayerClass : MonoBehaviour
             if (weapon != null)
             {
                 // false because the player is not an enemy
-                weapon.AttackUp(false);
+                weapon.AttackUp();
             }
         }
 
@@ -75,7 +75,7 @@ public class PlayerClass : MonoBehaviour
             if (weapon != null)
             {
                 // false because the player is not an enemy
-                weapon.AttackDown(false);
+                weapon.AttackDown();
             }
         }
 
@@ -91,7 +91,7 @@ public class PlayerClass : MonoBehaviour
             if (weapon != null)
             {
                 // false because the player is not an enemy
-                weapon.AttackRight(false);
+                weapon.AttackRight();
             }
         }
 
@@ -107,7 +107,7 @@ public class PlayerClass : MonoBehaviour
             if (weapon != null)
             {
                 // false because the player is not an enemy
-                weapon.AttackLeft(false);
+                weapon.AttackLeft();
             }
         }
     }

@@ -11,10 +11,6 @@ public class Shot : MonoBehaviour {
     public int dmg;
     public float range;
     public float shot_speed;
-    
-
-    // Projectile damage player or enemies?
-    public bool isEnemyShot = false;
 
     void Start()
     {
