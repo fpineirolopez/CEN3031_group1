@@ -50,6 +50,15 @@ public class WeaponFire : MonoBehaviour {
         }
     }
 
+    // Is the weapon ready to create a new projectile?
+    public bool CanAttack
+    {
+        get
+        {
+            return shootCooldown <= 0f;
+        }
+    }
+
     // Shooting from another script...
     // Create a new projectile if possible, shooting Up
     public void AttackUp(bool isEnemy)
@@ -192,13 +201,6 @@ public class WeaponFire : MonoBehaviour {
         }
     }
 
-    // Is the weapon ready to create a new projectile?
-    public bool CanAttack
-    {
-        get
-        {
-            return shootCooldown <= 0f;
-        }
-    }
+    
 }
 
