@@ -323,7 +323,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
-  isEnemy: 1
 --- !u!114 &114575824791750696
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -44,13 +44,6 @@ public class PauseMenu : MonoBehaviour {
         GameIsPaused = true;
     }
 
-
-    //when we have a settings menu made, we link it here. Right now it only displays a console message
-    public void LoadSettings()
-    {
-        Debug.Log("Make a settings Menu!");
-    }
-
     //Exits the game. Displays a console message so that we know it is working within Unity
     public void QuitGame()
     {

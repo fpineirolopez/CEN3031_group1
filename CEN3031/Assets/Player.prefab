@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50852533127514804}
   - component: {fileID: 114945610751693748}
   - component: {fileID: 114144554477897430}
+  - component: {fileID: 114423063838799100}
   - component: {fileID: 61556483055767348}
   m_Layer: 0
   m_Name: Player
@@ -101,6 +102,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 4533708081742398, guid: 4bf52df7f637c57469f60a6d222b4b0d, type: 2}
+--- !u!114 &114423063838799100
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1042979381542562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac47b830940fb3649a872f21f1350916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max_hp: 20
+  current_hp: 0
+  health_bar: {fileID: 0}
 --- !u!114 &114945610751693748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,6 +132,10 @@ MonoBehaviour:
   damage: 1
   fire_rate: 0.25
   shot_speed: 10
+  test_key_up: 0
+  test_key_left: 0
+  test_key_right: 0
+  test_key_down: 0
 --- !u!212 &212783070399071882
 SpriteRenderer:
   m_ObjectHideFlags: 1

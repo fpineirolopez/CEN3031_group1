@@ -7,6 +7,7 @@ public class Enemy_Projectile : MonoBehaviour {
     public float speed;
     Vector2 dir;//projectile direction
     bool isReady;//dir set
+    public int damage = 1; // damage value ***ONLY ADDED THIS FOR TESTING HEALTH BAR, FEEL FREE TO MODIFY IT***
 
     void Awake()
     {

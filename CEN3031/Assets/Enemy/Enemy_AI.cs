@@ -39,5 +39,6 @@ public class Enemy_AI : MonoBehaviour {
             enemyRotation.x = 0;
             transform.localRotation = enemyRotation;
         }
+
     }
 }
