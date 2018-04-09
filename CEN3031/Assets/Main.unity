@@ -294,12 +294,12 @@ Prefab:
     - target: {fileID: 224583043393502464, guid: 9edb583ea9c78374f9c3e99b8b21ebf9,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.583
       objectReference: {fileID: 0}
     - target: {fileID: 224583043393502464, guid: 9edb583ea9c78374f9c3e99b8b21ebf9,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9edb583ea9c78374f9c3e99b8b21ebf9, type: 2}
@@ -1267,6 +1267,16 @@ Prefab:
       propertyPath: health_bar
       value: 
       objectReference: {fileID: 1415264545}
+    - target: {fileID: 212783070399071882, guid: a90b9ef072b197f439f847aa7a354552,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 212783070399071882, guid: a90b9ef072b197f439f847aa7a354552,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a90b9ef072b197f439f847aa7a354552, type: 2}
   m_IsPrefabParent: 0
@@ -1374,3 +1384,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!1 &1966731945 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1042979381542562, guid: a90b9ef072b197f439f847aa7a354552,
+    type: 2}
+  m_PrefabInternal: {fileID: 1775300888}
+--- !u!95 &1966731946
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1966731945}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7d9ab4ccf7e81b244b54db8fb0b18536, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
