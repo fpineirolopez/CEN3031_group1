@@ -13,14 +13,15 @@ public class Boss_laser : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        Vector2 position = GameObject.Find("Boss").transform.position;
+        transform.position = position;
         death();
 
 
     }
 
     void death()
-    {
-       
+    { 
         Object.Destroy(gameObject, 2);
     }
 }
