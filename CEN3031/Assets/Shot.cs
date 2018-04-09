@@ -11,11 +11,12 @@ public class Shot : MonoBehaviour {
     public int dmg;
     public float range;
     public float shot_speed;
+    public Player_control pctrl;
 
     void Start()
     {
         // 2 - Limited time to live to avoid any leak
-        Destroy(gameObject, range / shot_speed); // range divided by velocity
+        Destroy(gameObject, pctrl.projectile_time_calculator(range, shot_speed) ); // range divided by velocity
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

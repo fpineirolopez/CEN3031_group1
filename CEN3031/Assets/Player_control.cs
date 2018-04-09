@@ -12,6 +12,11 @@ public class Player_control
         return movement;
     }
 
+    public float projectile_time_calculator(float shot_speed, float range)
+    {
+        return (range / shot_speed);
+    }
+
 
 }
 
