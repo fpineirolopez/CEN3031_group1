@@ -9,7 +9,7 @@ public class PlayerTest
 {
 
     [Test]
-    public void PlayerTestSimplePasses()
+    public void PlayerTestMovement()
     {
         //Initialize player controller object
         Player_control pctrl = new Player_control();
@@ -33,14 +33,22 @@ public class PlayerTest
 
     }
 
-    // A UnityTest behaves like a coroutine in PlayMode
-    // and allows you to yield null to skip a frame in EditMode
-    [UnityTest]
-    public IEnumerator PlayerTestWithEnumeratorPasses()
+    [Test]
+    public void PlayerTestRange()
     {
-        // Use the Assert class to test conditions.
-        // yield to skip a frame
-        yield return null;
+        Player_control pctrl = new Player_control();
+
+        for (float i = 1; i < 20; i += .1f)
+        {
+            for (float j = 1; j < 20; j += .1f)
+            {
+                float time = i / j;
+                Assert.AreEqual(time, pctrl.projectile_time_calculator(j, i));
+            }
+        }
     }
+
+   
+
 }
 
