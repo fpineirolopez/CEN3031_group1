@@ -10,6 +10,8 @@ public class Player_Health : MonoBehaviour
     public int current_hp;     // current health, used for calculations
     bool isDead = false;        // checks when player dies
 
+    public Health phealth = new Health(); // for offloading calculations to a testable interface
+
     public UnityEngine.UI.Slider health_bar;        // healthbar UI
 
     void Start()
@@ -26,7 +28,8 @@ public class Player_Health : MonoBehaviour
     // Inflicts damage and check if the object should be destroyed
     public void Damage(int damageCount)
     {
-        current_hp -= damageCount; //update current hp
+        //Get the health int based on input
+        current_hp = phealth.health_calculator(current_hp, damageCount);
 
         health_bar.value = current_hp;  //update healthbar
 
