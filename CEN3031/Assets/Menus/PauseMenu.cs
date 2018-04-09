@@ -8,9 +8,11 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject PauseMenuUI; //used for bringing up UI
 
-	//This is called when this script is loaded.
-	void Start(){
-		PauseMenuUI.SetActive (false);
+    public UnityEngine.UI.Button resumeButton; //used  for highlighting first button in pause menu and be able to navigate it with the keys
+
+    //This is called when this script is loaded.
+    void Start(){
+		PauseMenuUI.SetActive (false); 
 	}
 
     //Update is called once per frame
@@ -40,15 +42,9 @@ public class PauseMenu : MonoBehaviour {
     void Pause()
     {
         PauseMenuUI.SetActive(true);
+        resumeButton.OnSelect(null); // highlights Resume button when opening pause menu
         Time.timeScale = 0f;
         GameIsPaused = true;
-    }
-
-
-    //when we have a settings menu made, we link it here. Right now it only displays a console message
-    public void LoadSettings()
-    {
-        Debug.Log("Make a settings Menu!");
     }
 
     //Exits the game. Displays a console message so that we know it is working within Unity

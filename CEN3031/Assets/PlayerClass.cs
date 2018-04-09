@@ -10,6 +10,12 @@ public class PlayerClass : MonoBehaviour
     public float fire_rate;
     public float shot_speed;
 
+    public bool test_key_up = false;
+    public bool test_key_left = false;
+    public bool test_key_right = false;
+    public bool test_key_down = false;
+
+
     private Rigidbody2D rb2d;
     private Vector2 movement = new Vector2(0, 0);
 
@@ -41,7 +47,7 @@ public class PlayerClass : MonoBehaviour
         rb2d.MovePosition(rb2d.position + movement * speed * Time.fixedDeltaTime);
 
         // Shooting up
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) || test_key_up)
         {
             WeaponFire weapon = GetComponent<WeaponFire>();
             weapon.set_dmg(damage);
@@ -53,12 +59,12 @@ public class PlayerClass : MonoBehaviour
             if (weapon != null)
             {
                 // false because the player is not an enemy
-                weapon.AttackUp(false);
+                weapon.AttackUp();
             }
         }
 
         // Shooting down
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow) || test_key_down)
         {
             WeaponFire weapon = GetComponent<WeaponFire>();
             weapon.set_dmg(damage);
@@ -69,13 +75,13 @@ public class PlayerClass : MonoBehaviour
             if (weapon != null)
             {
                 // false because the player is not an enemy
-                weapon.AttackDown(false);
+                weapon.AttackDown();
             }
         }
 
         // Shooting right
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
+        if (Input.GetKey(KeyCode.RightArrow) || test_key_right)
+        { 
             WeaponFire weapon = GetComponent<WeaponFire>();
             weapon.set_dmg(damage);
             weapon.set_fire_rate(fire_rate);
@@ -85,12 +91,12 @@ public class PlayerClass : MonoBehaviour
             if (weapon != null)
             {
                 // false because the player is not an enemy
-                weapon.AttackRight(false);
+                weapon.AttackRight();
             }
         }
 
         // Shooting left
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || test_key_left)
         {
             WeaponFire weapon = GetComponent<WeaponFire>();
             weapon.set_dmg(damage);
@@ -101,7 +107,7 @@ public class PlayerClass : MonoBehaviour
             if (weapon != null)
             {
                 // false because the player is not an enemy
-                weapon.AttackLeft(false);
+                weapon.AttackLeft();
             }
         }
     }

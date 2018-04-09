@@ -50,9 +50,18 @@ public class WeaponFire : MonoBehaviour {
         }
     }
 
+    // Is the weapon ready to create a new projectile?
+    public bool CanAttack
+    {
+        get
+        {
+            return shootCooldown <= 0f;
+        }
+    }
+
     // Shooting from another script...
     // Create a new projectile if possible, shooting Up
-    public void AttackUp(bool isEnemy)
+    public void AttackUp()
     {
         if (CanAttack)
         {
@@ -65,18 +74,13 @@ public class WeaponFire : MonoBehaviour {
             // Position adjusted based on player - also affects enemy
             shotTransform.position = transform.position + new Vector3(0f, 0.75f, 0f);
 
-            // The is enemy property
+            // add values to shot object
             Shot shot = shotTransform.gameObject.GetComponent<Shot>();
             shot.dmg = damage;
             shot.range = range;
             shot.shot_speed = shot_speed;
 
-            if (shot != null)
-            {
-                shot.isEnemyShot = isEnemy;
-            }
-
-            // Make the weapon shot always towards it
+            // add movement to shot
             Move move = shotTransform.gameObject.GetComponent<Move>();
             move.speed = new Vector2(shot_speed, shot_speed);
 
@@ -88,7 +92,7 @@ public class WeaponFire : MonoBehaviour {
     }
 
     // Create a new projectile if possible, shooting Down
-    public void AttackDown(bool isEnemy)
+    public void AttackDown()
     {
         if (CanAttack)
         {
@@ -100,18 +104,13 @@ public class WeaponFire : MonoBehaviour {
             // Assign position
             shotTransform.position = transform.position - new Vector3(0f, 0.75f, 0f);
 
-            // The is enemy property
+            // add values to shot object
             Shot shot = shotTransform.gameObject.GetComponent<Shot>();
             shot.dmg = damage;
             shot.range = range;
             shot.shot_speed = shot_speed;
 
-            if (shot != null)
-            {
-                shot.isEnemyShot = isEnemy;
-            }
-
-            // Make the weapon shot always towards it
+            // add movement to shot
             Move move = shotTransform.gameObject.GetComponent<Move>();
             move.speed = new Vector2(shot_speed, shot_speed);
 
@@ -123,7 +122,7 @@ public class WeaponFire : MonoBehaviour {
     }
 
     // Create a new projectile if possible, shooting Right
-    public void AttackRight(bool isEnemy)
+    public void AttackRight()
     {
         if (CanAttack)
         {
@@ -134,19 +133,14 @@ public class WeaponFire : MonoBehaviour {
 
             // Assign position
             shotTransform.position = transform.position + new Vector3(0.75f, 0f, 0f);
-        
-            // The is enemy property
+
+            // add values to shot object
             Shot shot = shotTransform.gameObject.GetComponent<Shot>();
             shot.dmg = damage;
             shot.range = range;
             shot.shot_speed = shot_speed;
 
-            if (shot != null)
-            {
-                shot.isEnemyShot = isEnemy;
-            }
-
-            // Make the weapon shot always towards it
+            // add movement to shot
             Move move = shotTransform.gameObject.GetComponent<Move>();
             move.speed = new Vector2(shot_speed, shot_speed);
 
@@ -158,7 +152,7 @@ public class WeaponFire : MonoBehaviour {
     }
 
     // Create a new projectile if possible, shooting Left
-    public void AttackLeft(bool isEnemy)
+    public void AttackLeft()
     {
         if (CanAttack)
         {
@@ -170,18 +164,13 @@ public class WeaponFire : MonoBehaviour {
             // Assign position
             shotTransform.position = transform.position - new Vector3(0.75f, 0f, 0f);
 
-            // The is enemy property
+            // add values to shot object
             Shot shot = shotTransform.gameObject.GetComponent<Shot>();
             shot.dmg = damage;
             shot.range = range;
             shot.shot_speed = shot_speed;
 
-            if (shot != null)
-            {
-                shot.isEnemyShot = isEnemy;
-            }
-
-            // Make the weapon shot always towards it
+            // add movement to shot
             Move move = shotTransform.gameObject.GetComponent<Move>();
             move.speed = new Vector2(shot_speed, shot_speed);
 
@@ -192,13 +181,6 @@ public class WeaponFire : MonoBehaviour {
         }
     }
 
-    // Is the weapon ready to create a new projectile?
-    public bool CanAttack
-    {
-        get
-        {
-            return shootCooldown <= 0f;
-        }
-    }
+    
 }
 

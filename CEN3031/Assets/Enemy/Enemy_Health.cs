@@ -7,9 +7,6 @@ public class Enemy_Health : MonoBehaviour {
     // Total hitpoints
     public int hp = 5;
 
-    // Enemy or player
-    public bool isEnemy = true;
-
     // Inflicts damage and check if the object should be destroyed
     public void Damage(int damageCount)
     {
@@ -28,14 +25,10 @@ public class Enemy_Health : MonoBehaviour {
         Shot shot = otherCollider.gameObject.GetComponent<Shot>();
         if (shot != null)
         {
-            // Avoid friendly fire
-            if (shot.isEnemyShot != isEnemy)
-            {
-                Damage(shot.dmg);
+                Damage(shot.dmg); //inflict damage
 
                 // Destroy the shot
                 Destroy(shot.gameObject); // Remember to always target the game object, otherwise you will just remove the script
-            }
         }
     }
 
