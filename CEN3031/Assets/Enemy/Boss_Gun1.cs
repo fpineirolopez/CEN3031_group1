@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss_Gun : MonoBehaviour {
+public class Boss_Gun1 : MonoBehaviour {
     public GameObject Enemy_Projectile;
     float timer, timer2;
     int waitingtime = 1;
@@ -48,7 +48,7 @@ public class Boss_Gun : MonoBehaviour {
             //aim at player
             Vector2 direction = player.transform.position - bullet.transform.position;
 
-            direction.x = direction.x + 1;
+            direction = Vector2.right.Rotate(15f);
             bullet.GetComponent<Enemy_Projectile>().setDir(direction);
 
         }

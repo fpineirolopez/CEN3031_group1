@@ -343,11 +343,35 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114575824791750696, guid: cbe9d6ce4ba9ce546a4c9a2f8315969f,
+        type: 2}
+      propertyPath: Blaser
+      value: 
+      objectReference: {fileID: 1407242569975698, guid: fd5110027d63118488c138a538d5c8c7,
+        type: 2}
+    - target: {fileID: 114962146996456460, guid: cbe9d6ce4ba9ce546a4c9a2f8315969f,
+        type: 2}
+      propertyPath: Blaser
+      value: 
+      objectReference: {fileID: 1936859242414496, guid: 8b4f67ce2e2479f49ab7ae7d4269abd5,
+        type: 2}
     - target: {fileID: 114409573315482620, guid: cbe9d6ce4ba9ce546a4c9a2f8315969f,
         type: 2}
       propertyPath: target
       value: 
       objectReference: {fileID: 1775300889}
+    - target: {fileID: 114818190852023258, guid: cbe9d6ce4ba9ce546a4c9a2f8315969f,
+        type: 2}
+      propertyPath: Enemy_Projectile
+      value: 
+      objectReference: {fileID: 1579976603163696, guid: 7af541d7e550af543a0426b7eb340cb4,
+        type: 2}
+    - target: {fileID: 114033044779168596, guid: cbe9d6ce4ba9ce546a4c9a2f8315969f,
+        type: 2}
+      propertyPath: Enemy_Projectile
+      value: 
+      objectReference: {fileID: 1579976603163696, guid: 7af541d7e550af543a0426b7eb340cb4,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbe9d6ce4ba9ce546a4c9a2f8315969f, type: 2}
   m_IsPrefabParent: 0

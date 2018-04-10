@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4925942361787442}
-  - component: {fileID: 114808243003122734}
+  - component: {fileID: 114062568846276220}
   m_Layer: 0
-  m_Name: Enemy_Gun (2)
+  m_Name: Boss_Gun3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 50908299337114166}
   - component: {fileID: 114515419726061934}
   - component: {fileID: 114409573315482620}
+  - component: {fileID: 114981133263787756}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -87,9 +88,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4908983741737798}
-  - component: {fileID: 114953070183226154}
+  - component: {fileID: 114656148533537590}
   m_Layer: 0
-  m_Name: Enemy_Gun
+  m_Name: Boss_Gun1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,9 +104,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4136543426186156}
-  - component: {fileID: 114391201627610026}
+  - component: {fileID: 114548422468718944}
   m_Layer: 0
-  m_Name: Enemy_Gun (1)
+  m_Name: Boss_Gun2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,9 +120,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4353993975751480}
-  - component: {fileID: 114349558970044910}
+  - component: {fileID: 114839489812884162}
   m_Layer: 0
-  m_Name: Enemy_Gun (3)
+  m_Name: Boss_Gun4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,29 +270,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.15, y: 0.15}
   m_EdgeRadius: 0
---- !u!114 &114349558970044910
+--- !u!114 &114062568846276220
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1994769414899196}
+  m_GameObject: {fileID: 1087801696133964}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a379f0c107acb1043b8ad714e9c30133, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enemy_Projectile: {fileID: 1579976603163696, guid: 7af541d7e550af543a0426b7eb340cb4,
-    type: 2}
-  Blaser: {fileID: 0}
---- !u!114 &114391201627610026
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1877014254917348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a379f0c107acb1043b8ad714e9c30133, type: 3}
+  m_Script: {fileID: 11500000, guid: b5dfcaa8ef3a74c4ca0012de9c4bf0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy_Projectile: {fileID: 1579976603163696, guid: 7af541d7e550af543a0426b7eb340cb4,
@@ -323,6 +310,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
+--- !u!114 &114548422468718944
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1877014254917348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dd7020edeca914a836aef32a4f120c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy_Projectile: {fileID: 1579976603163696, guid: 7af541d7e550af543a0426b7eb340cb4,
+    type: 2}
+  Blaser: {fileID: 0}
 --- !u!114 &114575824791750696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -335,22 +336,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy_Projectile: {fileID: 0}
-  Blaser: {fileID: 1407242569975698, guid: fd5110027d63118488c138a538d5c8c7, type: 2}
---- !u!114 &114808243003122734
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1087801696133964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a379f0c107acb1043b8ad714e9c30133, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enemy_Projectile: {fileID: 1579976603163696, guid: 7af541d7e550af543a0426b7eb340cb4,
-    type: 2}
   Blaser: {fileID: 0}
---- !u!114 &114953070183226154
+--- !u!114 &114656148533537590
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -358,7 +345,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1865781136380570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a379f0c107acb1043b8ad714e9c30133, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ddf02e24f0d83d46be9d5a9a11049ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy_Projectile: {fileID: 1579976603163696, guid: 7af541d7e550af543a0426b7eb340cb4,
+    type: 2}
+  Blaser: {fileID: 0}
+--- !u!114 &114839489812884162
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1994769414899196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b3eb8f65f91024ab6a8e40ed7e4f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy_Projectile: {fileID: 1579976603163696, guid: 7af541d7e550af543a0426b7eb340cb4,
@@ -376,7 +377,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy_Projectile: {fileID: 0}
-  Blaser: {fileID: 1936859242414496, guid: 8b4f67ce2e2479f49ab7ae7d4269abd5, type: 2}
+  Blaser: {fileID: 0}
+--- !u!114 &114981133263787756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1771987271219758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 415a5b340eb350641966ce7b026f7e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212650721188028236
 SpriteRenderer:
   m_ObjectHideFlags: 1
