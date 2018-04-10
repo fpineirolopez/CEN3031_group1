@@ -37,7 +37,7 @@ public class Enemy_Gun : MonoBehaviour {
 
             //aim at player
             Vector2 direction = player.transform.position - bullet.transform.position;
-
+            
             bullet.GetComponent<Enemy_Projectile>().setDir(direction);
 
         }
