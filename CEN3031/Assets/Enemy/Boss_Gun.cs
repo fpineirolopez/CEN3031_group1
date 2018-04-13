@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Boss_Gun : MonoBehaviour {
     public GameObject Enemy_Projectile;
-    float timer, timer2;
+    float timer;
     int waitingtime = 1;
     Vector3 spin;
     // Use this for initialization
-    public GameObject Blaser;
     void Start()
     {
         
@@ -18,19 +17,14 @@ public class Boss_Gun : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        spin = new Vector3(Random.value, Random.value,Random.value);
         timer += Time.deltaTime;
-        timer2 += Time.deltaTime;
+        
         if (timer > waitingtime)
         {
             Invoke("fireProjectile", 1f);
             timer = 0;
         }
-        if (timer2 > 10)
-        {
-            Invoke("firelaser", 1f);
-            timer2 = 0;
-        }
+        
         
     }
 
@@ -75,14 +69,5 @@ public class Boss_Gun : MonoBehaviour {
         }
     }
 
-    void firelaser()
-    {
-        GameObject boss = GameObject.Find("Boss");
-        if (boss != null)
-        {
-            Instantiate(Blaser);
-            Blaser.transform.position = boss.transform.position;
-        }
-        
-    }
+    
 }
