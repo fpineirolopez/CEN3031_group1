@@ -46,10 +46,10 @@ public class Boss_Gun3 : MonoBehaviour {
             bullet.transform.position = transform.position;
 
             //aim at player
-            Vector2 direction = Vector2.right.Rotate(10f);
-            direction = player.transform.position - bullet.transform.position;
+            Vector2 direction = player.transform.position - bullet.transform.position;
+            direction += Vector2.down;
 
-            
+
             bullet.GetComponent<Enemy_Projectile>().setDir(direction);
 
         }
