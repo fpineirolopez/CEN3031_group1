@@ -1,9 +1,29 @@
 fileFormatVersion: 2
 guid: 7b6025459ffab694e9455d71ddb4a69b
-timeCreated: 1523584688
+timeCreated: 1523640663
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: enemy_mage_wd_0
+    21300002: enemy_mage_wd_1
+    21300004: enemy_mage_wd_2
+    21300006: enemy_mage_wu_0
+    21300008: enemy_mage_wu_1
+    21300010: enemy_mage_wu_2
+    21300012: enemy_mage_wl_0
+    21300014: enemy_mage_wl_1
+    21300016: enemy_mage_wl_2
+    21300018: enemy_mage_wr_0
+    21300020: enemy_mage_wr_1
+    21300022: enemy_mage_wr_2
+    21300024: enemy_mage_ad_0
+    21300026: enemy_mage_ad_1
+    21300028: enemy_mage_au_0
+    21300030: enemy_mage_au_1
+    21300032: enemy_mage_al_0
+    21300034: enemy_mage_al_1
+    21300036: enemy_mage_ar_0
+    21300038: enemy_mage_ar_1
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -45,9 +65,8 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spritePixelsToUnits: 16
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -79,7 +98,287 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: enemy_mage_wd_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_wd_1
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 112
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_wd_2
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 112
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_wu_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_wu_1
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 96
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_wu_2
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 96
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_wl_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 80
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_wl_1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 80
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_wl_2
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 80
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_wr_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_wr_1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 64
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_wr_2
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 64
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_ad_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_ad_1
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 48
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_au_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_au_1
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 32
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_al_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_al_1
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 16
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_ar_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: enemy_mage_ar_1
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 0
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 
