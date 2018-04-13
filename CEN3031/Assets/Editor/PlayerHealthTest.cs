@@ -13,8 +13,6 @@ public class PlayerHealthTest
     [Test]
     public void PlayerHealthTestPasses()
     {
-        //Initialize player health object
-        Health pctrl = new Health();
 
         //Create int to mime inputs
         int max_health = phealth.max_hp;
@@ -31,7 +29,7 @@ public class PlayerHealthTest
             {
                 inputs = current_health - damage;
                 calculated_health = health.health_calculator(current_health, damage);
-                Assert.AreEqual(inputs, health);
+                Assert.AreEqual(inputs, calculated_health);
             }
         }
 
