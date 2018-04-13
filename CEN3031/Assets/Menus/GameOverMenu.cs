@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverMenu : MonoBehaviour {
+
+    public Image black;
+    public Animator anim;
 
     /*Function triggers returning to the main menu*/
     public void ReturntoMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        StartCoroutine(Fading());
     }
 
     /*Function triggers quitting the game and exits the application. I added the Debug message to make sure that
@@ -19,4 +23,11 @@ public class GameOverMenu : MonoBehaviour {
         Application.Quit();
     }
 
+    IEnumerator Fading()
+    {
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => black.color.a == 1);
+        SceneManager.LoadScene("MainMenu");
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
