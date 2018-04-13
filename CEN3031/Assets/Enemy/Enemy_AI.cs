@@ -4,40 +4,44 @@ using UnityEngine;
 
 public class Enemy_AI : MonoBehaviour {
 
-    public Transform target;//set target from inspector instead of looking in Update
     Quaternion enemyRotation;
     Vector2 playerPos, enemyPos;
     public float Speed;
-    public float Distance_From_Player;
+    public float shot_range;
+    public Vector2 enemy_movement_vector;
+
+    //Control signals for AI, not used currently
+    public bool movement_enabled = true;
+    public bool in_range = false; 
 
 
     void Start()
     {
-        enemyRotation = this.transform.localRotation;
+
     }
 
     void Update()
     {
-        playerPos = new Vector2(target.localPosition.x, target.localPosition.y);//player position 
+        GameObject player = GameObject.Find("Player");
+
+        playerPos = new Vector2(player.transform.localPosition.x, player.transform.localPosition.y);//player position 
         enemyPos = new Vector2(this.transform.localPosition.x, this.transform.localPosition.y);//enemy position
-        if (Vector3.Distance(transform.transform.position, target.transform.position) > Distance_From_Player)//move towards if not close by 
+        enemy_movement_vector = Vector2.MoveTowards(enemyPos, playerPos, Speed * Time.deltaTime);
+
+        if (movement_enabled)//move towards if not close by 
         {
-            transform.position = Vector2.MoveTowards(enemyPos, playerPos, Speed * Time.deltaTime);
-        }
-        if (Vector3.Distance(transform.transform.position, target.transform.position) < Distance_From_Player - 0.05)//move away if too close 
-        {
-            //transform.position = Vector2.MoveTowards(enemyPos, playerPos, -1 * Time.deltaTime);
+            
+            transform.position = enemy_movement_vector;
+            
         }
 
-        if (target.position.x > transform.position.x)//rotates enemy to the right if player is to the right  
+        if(Vector3.Distance(transform.position, player.transform.position) < shot_range )
         {
-            enemyRotation.x = 180;
-            transform.localRotation = enemyRotation;
+            in_range = true;
         }
-        if (target.position.x < transform.position.x)//rotates enemy to the left if player is to the left 
+        else
         {
-            enemyRotation.x = 0;
-            transform.localRotation = enemyRotation;
+            in_range = false;
         }
 
     }
