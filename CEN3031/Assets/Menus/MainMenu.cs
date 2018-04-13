@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+
+    public Image black;
+    public Animator anim;
+
     /*Function triggers playing the game and calls the next scene in the queue when clicking the Play button.
     To adjust what the next scene in the queue is, go to File > Build Settings, and then drag the scenes in 
     the order you want them in the queue*/
     public void PlayGame ()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(Fading());
     }
 
     /*Function triggers quitting the game and exits the application. I added the Debug message to make sure that
@@ -19,6 +24,14 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("QUIT!");
         Application.Quit();
+    }
+
+    IEnumerator Fading()
+    {
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(()=>black.color.a==1);
+        SceneManager.LoadScene("GameOver");
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 }
