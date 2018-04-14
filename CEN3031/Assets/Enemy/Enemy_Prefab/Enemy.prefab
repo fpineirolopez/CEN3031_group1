@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 50760370065634320}
   - component: {fileID: 114354263291506632}
   - component: {fileID: 114129637157631130}
+  - component: {fileID: 114207388995527478}
+  - component: {fileID: 61080401789323990}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -64,6 +66,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &61080401789323990
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1020075079267078}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.14, y: 0.14}
+  m_EdgeRadius: 0
 --- !u!61 &61127829061136946
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -102,7 +129,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   Speed: 3
-  Distance_From_Player: 2
+  Distance_From_Player: 0.75
+--- !u!114 &114207388995527478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1020075079267078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f995b6854aa1647a0a8d167420cdd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAttacks: 0.5
+  attack: 1
 --- !u!114 &114354263291506632
 MonoBehaviour:
   m_ObjectHideFlags: 1
