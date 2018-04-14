@@ -33,5 +33,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-# Remove VS files
+#Visual Studio Files
 *.vs
