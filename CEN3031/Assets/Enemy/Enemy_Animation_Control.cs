@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy_Animation_Control : MonoBehaviour {
-
+    /*
     private Animator animator;
 
 	// Update is called once per frame
@@ -17,4 +17,5 @@ public class Enemy_Animation_Control : MonoBehaviour {
         
 
     }
+    */
 }
