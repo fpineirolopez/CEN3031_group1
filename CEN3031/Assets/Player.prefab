@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114144554477897430}
   - component: {fileID: 114423063838799100}
   - component: {fileID: 61556483055767348}
+  - component: {fileID: 95602794910094804}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -40,7 +41,7 @@ Transform:
   m_GameObject: {fileID: 1042979381542562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.24, y: 0.12, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -88,8 +89,25 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &95602794910094804
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1042979381542562}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7d9ab4ccf7e81b244b54db8fb0b18536, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114144554477897430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,6 +133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_hp: 20
   current_hp: 0
+  Can_Take_Damage: 0
+  Damage_Cooldown: 0
   health_bar: {fileID: 0}
 --- !u!114 &114945610751693748
 MonoBehaviour:
@@ -127,11 +147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5831eda2a555ede4f9f2a8728819898b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  range: 10
+  speed: 100
+  range: 160
   damage: 1
   fire_rate: 0.25
-  shot_speed: 10
+  shot_speed: 160
   test_key_up: 0
   test_key_left: 0
   test_key_right: 0
@@ -170,7 +190,7 @@ SpriteRenderer:
   m_SortingLayerID: -1411670359
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: 0315e53b3062b184bb819676b158c6d8, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -178,5 +198,5 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
