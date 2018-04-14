@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Boss_Gun : MonoBehaviour {
     public GameObject Enemy_Projectile;
-    float timer;
+    float timer, timer2;
     int waitingtime = 1;
     Vector3 spin;
     // Use this for initialization
+    public GameObject Blaser;
     void Start()
     {
         
@@ -17,15 +18,20 @@ public class Boss_Gun : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        spin = new Vector3(Random.value, Random.value,Random.value);
         timer += Time.deltaTime;
-        
+        timer2 += Time.deltaTime;
         if (timer > waitingtime)
         {
             Invoke("fireProjectile", 1f);
             timer = 0;
         }
-        
-        
+        if (timer2 > 10)
+        {
+            Invoke("firelaser", 1f);
+            timer2 = 0;
+        }
+
     }
 
     //fire
@@ -35,39 +41,26 @@ public class Boss_Gun : MonoBehaviour {
 
         if (player != null)
         {
-            GameObject bullet1 = (GameObject)Instantiate(Enemy_Projectile);
-            GameObject bullet2 = (GameObject)Instantiate(Enemy_Projectile);
-            GameObject bullet3 = (GameObject)Instantiate(Enemy_Projectile);
-            GameObject bullet4 = (GameObject)Instantiate(Enemy_Projectile);
-            GameObject bullet5 = (GameObject)Instantiate(Enemy_Projectile);
+            GameObject bullet = (GameObject)Instantiate(Enemy_Projectile);
             //initial pos
-            bullet1.transform.position = transform.position;
-            bullet2.transform.position = transform.position;
-            bullet3.transform.position = transform.position;
-            bullet4.transform.position = transform.position;
-            bullet5.transform.position = transform.position;
+            bullet.transform.position = transform.position;
 
             //aim at player
-            Vector2 direction1 = player.transform.position - bullet1.transform.position;
-            Vector2 direction2 = player.transform.position - bullet2.transform.position;
-            Vector2 direction3 = player.transform.position - bullet3.transform.position;
-            Vector2 direction4 = player.transform.position - bullet4.transform.position;
-            Vector2 direction5 = player.transform.position - bullet5.transform.position;
+            Vector2 direction = player.transform.position - bullet.transform.position;
 
-            direction1 = direction1 + Vector2.up;
-            direction2 = direction2 + Vector2.up + Vector2.up;
-            direction3 = direction3 + Vector2.down;
-            direction4 = direction4 + Vector2.down + Vector2.down;
-
-
-            bullet1.GetComponent<Enemy_Projectile>().setDir(direction1);
-            bullet2.GetComponent<Enemy_Projectile>().setDir(direction2);
-            bullet3.GetComponent<Enemy_Projectile>().setDir(direction3);
-            bullet4.GetComponent<Enemy_Projectile>().setDir(direction4);
-            bullet5.GetComponent<Enemy_Projectile>().setDir(direction5);
+            bullet.GetComponent<Enemy_Projectile>().setDir(direction);
 
         }
     }
 
-    
+    void firelaser()
+    {
+        GameObject player = GameObject.Find("Player");
+        if (player != null)
+        {
+            Instantiate(Blaser);
+            Blaser.transform.position = transform.position;
+        }
+        
+    }
 }
