@@ -88,7 +88,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.15, y: 0.15}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.15
 --- !u!114 &114129637157631130
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   Speed: 3
-  Distance_From_Player: 2
+  Distance_From_Player: 0.2
 --- !u!114 &114354263291506632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
+  touchDamage: 1
 --- !u!212 &212821174220890266
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -38,11 +38,12 @@ public class Player_Health : MonoBehaviour
             // Dead!
             PlayerDies();
         }
+       
     }
 
     void OnTriggerEnter2D(Collider2D otherCollider)
     {
-      
+
         // Is this a shot?
         Enemy_Projectile shot = otherCollider.gameObject.GetComponent<Enemy_Projectile>();
         if (shot != null)
@@ -53,6 +54,7 @@ public class Player_Health : MonoBehaviour
             Destroy(shot.gameObject); // Remember to always target the game object, otherwise you will just remove the script
         }
     }
+
 
     // When the player dies, deletes player object, and calls Game Over scene
     void PlayerDies()
