@@ -49,7 +49,7 @@ public class Door : MonoBehaviour {
             posOrNeg = -1.0f;
         }
         playerMove *= posOrNeg;
-        GameObject.FindWithTag("Player").GetComponent<PlayerController>().TeleportByAmount(playerMove);//This isn't named/set up correctly right now.
+        GameObject.FindWithTag("Player").GetComponent<PlayerClass>().TeleportByAmount(playerMove);//This isn't named/set up correctly right now.
     }
 
     void setDir(int d){

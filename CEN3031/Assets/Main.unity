@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 67418917}
   - component: {fileID: 67418916}
   - component: {fileID: 67418915}
+  - component: {fileID: 67418919}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -165,7 +166,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 100
+  orthographic size: 120
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -194,6 +195,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &67418919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 67418914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd8865a00b187f498b46d606fdc827c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &660770838
 Prefab:
   m_ObjectHideFlags: 0
@@ -657,6 +669,16 @@ Prefab:
         type: 2}
       propertyPath: speed
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114945610751693748, guid: a90b9ef072b197f439f847aa7a354552,
+        type: 2}
+      propertyPath: shot_speed
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 114945610751693748, guid: a90b9ef072b197f439f847aa7a354552,
+        type: 2}
+      propertyPath: range
+      value: 160
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a90b9ef072b197f439f847aa7a354552, type: 2}

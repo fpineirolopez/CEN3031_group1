@@ -40,6 +40,22 @@ public class PlayerClass : MonoBehaviour
         
     }
 
+    //set player to origin - 0,0
+    //Reset the player origin at the start of a new level
+    public void ResetPlayerPosition()
+    {
+        transform.position = new Vector3(0, 0, 0);
+    }
+
+    //Move player object by specified amount -- used for going through doors
+    public void TeleportByAmount(Vector2 movementAmount)
+    {
+        Vector3 position = transform.position;
+        position.x += movementAmount.x;
+        position.y += movementAmount.y;
+        transform.position = position;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
