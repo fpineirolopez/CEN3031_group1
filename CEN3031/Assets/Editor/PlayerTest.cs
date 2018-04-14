@@ -33,6 +33,19 @@ public class PlayerTest
 
     }
 
+    [Test]
+    public void ProjectileTimeTest()
+    {
+        ShotHelper shot = new ShotHelper() {
+            dmg = 10,
+            range = 10,
+            shot_speed = 10
+        };
+
+        float timer = shot.range / shot.shot_speed;
+        Assert.IsTrue(timer == shot.getTimer());
+    }
+
     // A UnityTest behaves like a coroutine in PlayMode
     // and allows you to yield null to skip a frame in EditMode
     [UnityTest]
