@@ -37,14 +37,10 @@ Transform:
   m_GameObject: {fileID: 1407242569975698}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
 <<<<<<< HEAD
-<<<<<<< HEAD
   m_LocalPosition: {x: -2.3403323, y: 2.251063, z: 0}
 =======
   m_LocalPosition: {x: -0.87306124, y: -1.0084625, z: 0}
 >>>>>>> aee7b7ed41c3630878fb5f1650cee0891421fc16
-=======
-  m_LocalPosition: {x: -2.5013266, y: 0.8389915, z: 0}
->>>>>>> parent of aee7b7e... Revert "Revert "Fade IN and Out between scenes""
   m_LocalScale: {x: 0.2, y: 50, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
