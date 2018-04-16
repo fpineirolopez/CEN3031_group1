@@ -8,6 +8,8 @@ TagManager:
   - EProjectile
   - Enviroment
   - ELaser
+  - Mage_projectile
+  - Box
   layers:
   - Default
   - TransparentFX
