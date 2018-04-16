@@ -49,6 +49,7 @@ public class RoomInstance : MonoBehaviour {
     LevelGeneration levelGenManager;
 
     Vector2 roomSizeInTiles = new Vector2(15,23);//(15, 23)
+    //The setup script.
 	public void Setup(Texture2D _tex, Vector2 _gridPos, int _type, bool _doorTop, bool _doorBot, bool _doorLeft, bool _doorRight){
 		tex = _tex;
 		gridPos = _gridPos;
@@ -70,6 +71,8 @@ public class RoomInstance : MonoBehaviour {
 		GenerateRoomTiles();
 	}
 
+
+    //Called every frame. Used to check if rooms are complete by referencing the levelGenManager, which manages the enemy count.
     void Update(){
         if (!isInRoom)
             return;
@@ -91,6 +94,7 @@ public class RoomInstance : MonoBehaviour {
 
     }
 
+    //If player entered an uncleared room, close doors and spawn enemies.
     void OnTriggerEnter2D(Collider2D collid){//Use collider to detect when the player is in the room.
         if (collid.gameObject.tag != "Player")
             return;
@@ -101,6 +105,7 @@ public class RoomInstance : MonoBehaviour {
         SpawnEnemies();
     }
 
+    //When the player exits the room, set isInRoom to false.
     void OnTriggerExit2D(Collider2D collid){
         if (collid.gameObject.tag != "Player")
             return;
@@ -108,16 +113,17 @@ public class RoomInstance : MonoBehaviour {
     }
 
 
+    //This spawsn enemies of one type by asking the level generator for values.
     void SpawnEnemies(){
-        Debug.Log("FOO");
-        Debug.Log(enemySpawnLocations.Count);
-        //It may be sensible to pause for ~.5 seconds. Thus you may want to yield IEnumerator...
+        //It may be sensible to pause for ~.5 seconds. Thus you may want to yield IEnumerator... Or not.
         //Randomly select one of the enemy types.
         int enemyIndex = Mathf.RoundToInt(Random.value * (enemies.Length - 1));
         GameObject enemyPrefab = enemies[enemyIndex];
         int numberOfEnemies = levelGenManager.getEnemyCount(enemyIndex);
         levelGenManager.addEnemies(numberOfEnemies);
         for(int i = 0; i < numberOfEnemies; i++){
+            if (enemySpawnLocations.Count == 0)//If no more spots exist, return.
+                return;
             int index = Mathf.RoundToInt(Random.value * (enemySpawnLocations.Count - 1));
             Instantiate(enemyPrefab, enemySpawnLocations[index], Quaternion.identity);
             enemySpawnLocations.RemoveAt(index);

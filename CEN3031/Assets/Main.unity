@@ -250,6 +250,11 @@ Prefab:
       propertyPath: health_bar
       value: 
       objectReference: {fileID: 992904601}
+    - target: {fileID: 114144554477897430, guid: a90b9ef072b197f439f847aa7a354552,
+        type: 2}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a90b9ef072b197f439f847aa7a354552, type: 2}
   m_IsPrefabParent: 0
@@ -521,6 +526,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: fbb891fbf29244e12b32b89278a5d717, type: 3}
   - {fileID: 2800000, guid: 727d024141f06409591f4de68ddd81a1, type: 3}
   - {fileID: 2800000, guid: f59289f79c97d49e1930652432c3a335, type: 3}
+  - {fileID: 2800000, guid: 8948f9ba6ab464d82ac541f13ca6fa7f, type: 3}
   RoomObj:
   - {fileID: 1826583783565246, guid: ddb8600ce74d3420094fc2219e67e755, type: 2}
   - {fileID: 1579786453976332, guid: a40b0a4ec4dec47e8a78c792438b8b7c, type: 2}

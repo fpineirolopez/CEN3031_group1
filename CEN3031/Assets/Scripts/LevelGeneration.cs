@@ -18,7 +18,7 @@ public class LevelGeneration : MonoBehaviour {
 	public Room[,] rooms;//2D array of rooms to store general world info. This will be used to manage adjacency as well. This shouldn't actually be public but it is kept this way for testing purposes.
     List<Vector2> edgePositions;//List of all positions that have open neighbors for floor generation.
     int gridSizeX, gridSizeY;
-    public int numberOfRooms = 4;//We'll make this public, default to 5.
+    public int numberOfRooms = 4;//We'll make this public, default to 4.
 	public GameObject roomWhiteObj;//The central room object for drawing minimap. Calls MapSpriteSelector after being Instantiated.
 	public Transform mapRoot;
 
@@ -46,7 +46,7 @@ public class LevelGeneration : MonoBehaviour {
         InitLevel();
     }
 
-//	void Start () no longer needed.
+    //	void Start () no longer needed, though it may be set to work?
 
     //This is called every time the scene is reloaded.
     void OnLevelWasLoaded(int index){
@@ -61,14 +61,7 @@ public class LevelGeneration : MonoBehaviour {
         InitLevel();
     }
 
-    void Update(){
-        if (levelCleared)
-            return;
-        if (currentPercentage >= clearPercentage){
-            levelCleared = true;
-            rooms[gridSizeX, gridSizeY].roomInstance.SpawnWarp();
-        }
-    }
+    //Turns out Update isn't needed. 
 
 
     void InitLevel(){
@@ -198,9 +191,14 @@ public class LevelGeneration : MonoBehaviour {
         return false;
     }
 
+    //Called when every room is cleared. If enough rooms are cleared, spawn the warp.
     public void clearedRoom(){
         roomsCleared++;
         currentPercentage = (float)roomsCleared / numberOfRooms;
+        if (currentPercentage >= clearPercentage){
+            levelCleared = true;
+            rooms[gridSizeX, gridSizeY].roomInstance.SpawnWarp();
+        }
         //Debug.Log(currentPercentage);
     }
 
