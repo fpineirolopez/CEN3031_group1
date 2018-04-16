@@ -24,7 +24,10 @@ GameObject:
   - component: {fileID: 50065134569883044}
   - component: {fileID: 114209919692892176}
   - component: {fileID: 114275293626554492}
+  - component: {fileID: 114613552645032244}
   - component: {fileID: 95543914371011578}
+  - component: {fileID: 61207318251916812}
+  - component: {fileID: 58394489194766890}
   m_Layer: 0
   m_Name: Enemy_Bug
   m_TagString: Untagged
@@ -39,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1936118492617274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -220.6, y: -56.7, z: -0.003}
+  m_LocalPosition: {x: -245.3, y: -80.9, z: -0.003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -65,8 +68,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61943969658390628
-BoxCollider2D:
+--- !u!58 &58394489194766890
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -75,6 +78,21 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 6.5
+--- !u!61 &61207318251916812
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1936118492617274}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -88,7 +106,32 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.398342, y: 16.376034}
+  m_Size: {x: 11, y: 11}
+  m_EdgeRadius: 5.5
+--- !u!61 &61943969658390628
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1936118492617274}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.029129028, y: 1.4854355}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 12, y: 17}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10.175049, y: 10.02655}
   m_EdgeRadius: 0
 --- !u!95 &95543914371011578
 Animator:
@@ -131,10 +174,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 16
-  shot_range: 400
-  max_player_distance: 100
+  shot_range: 200
+  max_player_distance: 50
   Enemy_Projectile: {fileID: 1977284178099314, guid: a435bf2fa36c6aa419f5304c6ed9fc3b,
     type: 2}
+--- !u!114 &114613552645032244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1936118492617274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f995b6854aa1647a0a8d167420cdd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAttacks: 0.5
+  attack: 1
 --- !u!212 &212531527583896400
 SpriteRenderer:
   m_ObjectHideFlags: 1
