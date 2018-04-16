@@ -16,6 +16,7 @@ public class PlayerClass : MonoBehaviour
     public bool test_key_down = false;
 
 
+
     private Rigidbody2D rb2d;
     private Vector2 movement = new Vector2(0, 0);
     private Animator animator;
@@ -34,10 +35,19 @@ public class PlayerClass : MonoBehaviour
     //Player controller script created and used for offloading logic and calculations to testable interface
     public Player_control pctrl = new Player_control();
 
+    public static PlayerClass instance = null;
     // Use this for initialization
-    void awake()
+    void Awake()
     {
-        
+        if( instance == null)
+        {
+            instance = this;
+        }
+        else if(instance != this)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
     }
 
     //set player to origin - 0,0
@@ -68,9 +78,7 @@ public class PlayerClass : MonoBehaviour
         //Get the raw input for the input axis
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
-        Debug.Log(moveHorizontal);
-        Debug.Log(moveVertical);
-
+  
                 
         
         wu = false;
