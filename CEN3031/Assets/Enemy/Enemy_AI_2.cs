@@ -16,7 +16,6 @@ public class Enemy_AI_2 : MonoBehaviour {
     Animator animator;
     bool can_move = true;
     bool in_range = false;
-    bool doing_shot = false;
     int curr_direction;
     int curr_status;
     int last_saved_direction;
@@ -59,7 +58,7 @@ public class Enemy_AI_2 : MonoBehaviour {
                 curr_direction = (int)(Direction.Down);
         }
 
-        Debug.Log("Movement: " + enemy_move_direction + "\nDirection: " + (Direction)curr_direction);
+        //Debug.Log("Movement: " + enemy_move_direction + "\nDirection: " + (Direction)curr_direction);
 
         // Determine if the enemy is within shooting range of the player
         in_range = Vector2.Distance(enemyPos, playerPos) < shot_range;

@@ -47,7 +47,13 @@ public class Enemy_Projectile : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if((collision.tag == "Player") || (collision.tag == "Enviroment"))
+
+        if((collision.tag == "Player") || (collision.tag == "Enviroment") && this.gameObject.tag == "Mage_projectile")
+        {
+            Destroy(gameObject);
+        }
+
+        if((collision.tag == "Player") || (collision.tag == "Enviroment") || collision.tag == "Box" && this.gameObject.tag != "Mage_projectile")
         {
             Destroy(gameObject);
         }
