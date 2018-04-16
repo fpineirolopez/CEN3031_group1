@@ -141,6 +141,7 @@ MonoBehaviour:
   cornerWalls:
   - {fileID: 1994392611621056, guid: 79ac22d7258224c2da51a3ef8cb742b6, type: 2}
   - {fileID: 1613699296495936, guid: a160ac33fbd5f43fb9139d9bc4e2d1ba, type: 2}
+  exitObject: {fileID: 1108441890694694, guid: 29c535f3ee9e84e18be1786fb0d3d555, type: 2}
 --- !u!212 &212205911641265116
 SpriteRenderer:
   m_ObjectHideFlags: 1

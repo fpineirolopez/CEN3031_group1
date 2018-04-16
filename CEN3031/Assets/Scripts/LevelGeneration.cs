@@ -27,6 +27,8 @@ public class LevelGeneration : MonoBehaviour {
     int level;
     int roomsCleared;
     float clearPercentage = .75f;//This percentage of the total rooms must be completed to clear the level = spawn the next floor warp.
+    float currentPercentage;
+    bool levelCleared;
 
     int currentNumberOfEnemies;
 
@@ -40,8 +42,7 @@ public class LevelGeneration : MonoBehaviour {
 
         //Debug.Log("Level Generation Created");
         DontDestroyOnLoad(gameObject);
-        level = 0;
-        currentNumberOfEnemies = 0;
+        level = 1;
         InitLevel();
     }
 
@@ -52,13 +53,29 @@ public class LevelGeneration : MonoBehaviour {
         if (this != instance)
             return;
         //Debug.Log("Loading Level " + level);
-        numberOfRooms = 4 + level++;
+        numberOfRooms = 4 + level++;//This is where I am currently incrementing the level.
         if (numberOfRooms > 50)
             numberOfRooms = 50;
+        roomsCleared = 1;
+        levelCleared = false;
         InitLevel();
     }
 
+    void Update(){
+        if (levelCleared)
+            return;
+        if (currentPercentage >= clearPercentage){
+            levelCleared = true;
+            rooms[gridSizeX, gridSizeY].roomInstance.SpawnWarp();
+        }
+    }
+
+
     void InitLevel(){
+        roomsCleared = 1;
+        currentNumberOfEnemies = 0;
+        currentPercentage = 0.0f;
+
         edgePositions = new List<Vector2>();//Initialize edge position list.
             
         gridSizeX = (int) worldSize.x;//Stores half-size of map, we'll hard code this to 4..
@@ -163,22 +180,28 @@ public class LevelGeneration : MonoBehaviour {
     }
 
 
-    public void addEnemies(int amount){
+    public void addEnemies(int amount){//This script keeps track of the number of enemies currently in the scene. 
         currentNumberOfEnemies += amount;
     }
 
-    public void killEnemy(){
+    public void killEnemy(){//This is a method called by the enemy when it is destroyed.
         currentNumberOfEnemies--;
     }
 
-    public void IsClearOfEnemies(){
+    public bool IsClearOfEnemies(){//To check whether the room is cleared or not.
         if (currentNumberOfEnemies < 0){
             Debug.Log("Hmm... We have negative enemies right now. This shouldn't be the case.");
-            return;
+            return false;
         }
         if (currentNumberOfEnemies == 0)
             return true;
         return false;
+    }
+
+    public void clearedRoom(){
+        roomsCleared++;
+        currentPercentage = (float)roomsCleared / numberOfRooms;
+        //Debug.Log(currentPercentage);
     }
 
     //This method draws the minimap. This may or may not be actually used; Ignore for now.

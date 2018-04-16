@@ -32,6 +32,9 @@ public class RoomInstance : MonoBehaviour {
     [SerializeField]
     GameObject[] cornerWalls = new GameObject[2];
 
+    [SerializeField]
+    GameObject exitObject;
+
     Color black = new Color(0, 0, 0);
     Color white = new Color(1,1,1);
     Color blue = new Color(0,0,1);//Blue tiles refer to the wall tile. Use to place cracked wall at random.
@@ -41,7 +44,7 @@ public class RoomInstance : MonoBehaviour {
     List<Vector3> enemySpawnLocations = new List<Vector3>();
 
     bool isCleared;//Boolean to check if this room has been cleared by the player.
-    bool isInRoom;//Booloean to check if the player is currently inside of this room.
+    bool isInRoom;//Boolean to check if the player is currently inside of this room.
 
     LevelGeneration levelGenManager;
 
@@ -56,12 +59,12 @@ public class RoomInstance : MonoBehaviour {
 		doorRight = _doorRight;
         isInRoom = false;
 
-        if(_type == 1)//If type == 1, then this is the starting room; otherwise it is a standard room w/ clear condition
+        if(type == 1)//If type == 1, then this is the starting room; otherwise it is a standard room w/ clear condition
             isCleared = true;
         else
             isCleared = false;
 
-        levelGenManager = GameObject.Find("Level Generator").GetComponent<LevelGeneration>();
+        levelGenManager = GameObject.Find("LevelGenerator").GetComponent<LevelGeneration>();
 
 		MakeDoors();
 		GenerateRoomTiles();
@@ -77,6 +80,7 @@ public class RoomInstance : MonoBehaviour {
         if (Input.GetKeyDown("c")){//DEBUG ONLY, hit c to force clear the room. This isCleared -> MakeDoors flow will be the same.
             isCleared = true;
             RemakeDoors();//Use remake to avoid instantiating excess walls. DON'T hit again to avoid remaking doors.
+            levelGenManager.clearedRoom();
         }
 
     }
@@ -116,13 +120,12 @@ public class RoomInstance : MonoBehaviour {
         //Instantiate(bossPrefab, center(?), Quaternion.Identity);
     }
 
-    //Exit will only spawn in the white space in the room template. As of now, it is 
-    void SpawnWarp(){
-        if (type != 0)
+    //Exit will only spawn in the white space in the room template. As of now, it is only the first empty room.
+    public void SpawnWarp(){
+        if (type != 1)
             return;
-        //Get stairs prefab set up -> on trigger, reload level. 
-        //int index = Mathf.RoundToInt(Random.value * (ExitSpawnLocations.Count - 1));
-        //Instantiate(exitPrefab, exitSpawnLocations[index], Quaternion.Identity).transform.parent = transform.;
+        int index = Mathf.RoundToInt(Random.value * (exitSpawnLocations.Count - 1));
+        Instantiate(exitObject, exitSpawnLocations[index], Quaternion.identity).transform.parent = transform;
 
     }
 

@@ -19,8 +19,10 @@ public class UtilityBehaviors : MonoBehaviour {
     }
 
 	void Update () {
+        /*
 		if (Input.GetKeyDown("r")){//reload scene, for testing purposes, will be worked in to the overall level script.
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
+        */      
 	}
 }
