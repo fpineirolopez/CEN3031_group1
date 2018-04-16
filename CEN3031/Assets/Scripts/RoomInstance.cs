@@ -37,10 +37,14 @@ public class RoomInstance : MonoBehaviour {
     Color blue = new Color(0,0,1);//Blue tiles refer to the wall tile. Use to place cracked wall at random.
     float tileSize = 16;
 
+    List<Vector3> exitSpawnLocations = new List<Vector3>();
+    List<Vector3> enemySpawnLocations = new List<Vector3>();
+
     bool isCleared;//Boolean to check if this room has been cleared by the player.
     bool isInRoom;//Booloean to check if the player is currently inside of this room.
 
-    int numberOfEnemiesLeft;//Integer to 
+    LevelGeneration levelGenManager;
+
     Vector2 roomSizeInTiles = new Vector2(15,23);//(15, 23)
 	public void Setup(Texture2D _tex, Vector2 _gridPos, int _type, bool _doorTop, bool _doorBot, bool _doorLeft, bool _doorRight){
 		tex = _tex;
@@ -56,7 +60,9 @@ public class RoomInstance : MonoBehaviour {
             isCleared = true;
         else
             isCleared = false;
-        
+
+        levelGenManager = GameObject.Find("Level Generator").GetComponent<LevelGeneration>();
+
 		MakeDoors();
 		GenerateRoomTiles();
 	}
@@ -66,10 +72,11 @@ public class RoomInstance : MonoBehaviour {
             return;
         if (isCleared)
             return;
-        
-        if (Input.GetKeyDown("c")){//DEBUG ONLY, hit c to force clear the room. This  isCleared -> MakeDoors will be the same.
+
+        //If(levelGenManager.IsClearOfEnemies())
+        if (Input.GetKeyDown("c")){//DEBUG ONLY, hit c to force clear the room. This isCleared -> MakeDoors flow will be the same.
             isCleared = true;
-            RemakeDoors();//Use remake to avoid instantiating excess walls.
+            RemakeDoors();//Use remake to avoid instantiating excess walls. DON'T hit again to avoid remaking doors.
         }
 
     }
@@ -88,6 +95,35 @@ public class RoomInstance : MonoBehaviour {
         if (collid.gameObject.tag != "Player")
             return;
         isInRoom = false;
+    }
+
+
+    void SpawnEnemies(){
+        //It may be sensible to pause for ~.5 seconds. Thus you may want to yield IEnumerator...
+        /*Get instance of enemy spawner, most likely attached to the level generator gameobject.
+        Randomly select one of the enemy types.
+        int numberOfEnemies = instance.getCount(level);
+        levelGenManager.addEnemy(numberOfEnemies);
+        for(int i = 0; i < numberOfEnemies; i++){
+            int index = Mathf.RoundToInt(Random.value * (EnemySpawnLocations.Count - 1))
+            Instantiate(enemyPrefab, enemySpawnLocations[index], Quaternion.Identity);
+        }
+        */
+    }
+
+    void SpawnBoss(){
+        //Fixed spawn location? Center?
+        //Instantiate(bossPrefab, center(?), Quaternion.Identity);
+    }
+
+    //Exit will only spawn in the white space in the room template. As of now, it is 
+    void SpawnWarp(){
+        if (type != 0)
+            return;
+        //Get stairs prefab set up -> on trigger, reload level. 
+        //int index = Mathf.RoundToInt(Random.value * (ExitSpawnLocations.Count - 1));
+        //Instantiate(exitPrefab, exitSpawnLocations[index], Quaternion.Identity).transform.parent = transform.;
+
     }
 
     //So the previous calculations don't work because the dimensions are no longer (n, 2n-1). Therefore it is better to just take the dimension and shift is as needed.
@@ -202,25 +238,32 @@ public class RoomInstance : MonoBehaviour {
 			return;
 		}
 
-        List<Vector3> feasibleEnemyLocations = new List<Vector3>();
 
 		//find the color to match the pixel
 		foreach (ColorToGameObject mapping in mappings){
 			if (mapping.color.Equals(pixelColor)){
-                if (mapping.color.Equals(black) || mapping.color.Equals(white))
-                    break;  
-                Vector3 spawnPos = positionFromTileGrid(x,y);
-                if (mapping.color.Equals(blue)){//If this is a wall tile
-                    if (Random.Range(0.0f, 1.0f) < .95f){//95% chance that this 
-                        Instantiate(mapping.prefab, spawnPos, Quaternion.identity).transform.parent = this.transform;
-                    }
-                    else{
-                        Instantiate(crackedWall, spawnPos, Quaternion.identity).transform.parent = this.transform;
-                    }
+                Vector3 spawnPos = positionFromTileGrid(x, y);
+                if (mapping.color.Equals(black)){
+                    enemySpawnLocations.Insert(0, spawnPos);
                     return;
                 }
-				Instantiate(mapping.prefab, spawnPos, Quaternion.identity).transform.parent = this.transform;
-                return;
+                else if (mapping.color.Equals(white)){
+                    exitSpawnLocations.Insert(0, spawnPos);
+                    return;
+                }
+                else{
+                    if (mapping.color.Equals(blue)){//If this is a wall tile
+                        if (Random.Range(0.0f, 1.0f) < .95f){//95% chance that this will be a cracked wall.
+                            Instantiate(mapping.prefab, spawnPos, Quaternion.identity).transform.parent = this.transform;
+                        }
+                        else{
+                            Instantiate(crackedWall, spawnPos, Quaternion.identity).transform.parent = this.transform;
+                        }
+                        return;
+                    }
+                    Instantiate(mapping.prefab, spawnPos, Quaternion.identity).transform.parent = this.transform;
+                    return;
+                }
 			}
 		}
 	}
@@ -233,7 +276,6 @@ public class RoomInstance : MonoBehaviour {
 		ret = new Vector3(tileSize * (float) x, tileSize * (float) y, 0) + offset + transform.position;
 		return ret;
 	}
-
 
 
 }

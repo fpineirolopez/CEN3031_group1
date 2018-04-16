@@ -457,14 +457,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1020075079267078, guid: 0f9ba808a9b96454cada268e0be0785d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114129637157631130, guid: 0f9ba808a9b96454cada268e0be0785d,
         type: 2}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1020075079267078, guid: 0f9ba808a9b96454cada268e0be0785d, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f9ba808a9b96454cada268e0be0785d, type: 2}
@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f288b11a4078a5040b0f6657b4b4e36f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfRooms: 10
+  numberOfRooms: 4
   roomWhiteObj: {fileID: 1975706786332780, guid: a1fe431a2bc4a2940b2503b8f131da18,
     type: 2}
   mapRoot: {fileID: 0}

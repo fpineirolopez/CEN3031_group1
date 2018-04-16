@@ -18,13 +18,17 @@ public class LevelGeneration : MonoBehaviour {
 	public Room[,] rooms;//2D array of rooms to store general world info. This will be used to manage adjacency as well. This shouldn't actually be public but it is kept this way for testing purposes.
     List<Vector2> edgePositions;//List of all positions that have open neighbors for floor generation.
     int gridSizeX, gridSizeY;
-    public int numberOfRooms = 10;//We'll make this public, default to 10.
+    public int numberOfRooms = 4;//We'll make this public, default to 5.
 	public GameObject roomWhiteObj;//The central room object for drawing minimap. Calls MapSpriteSelector after being Instantiated.
 	public Transform mapRoot;
 
-    public static LevelGeneration instance = null;
+    public static LevelGeneration instance = null;//For singleton pattern, prevent this from being created over again.
    
     int level;
+    int roomsCleared;
+    float clearPercentage = .75f;//This percentage of the total rooms must be completed to clear the level = spawn the next floor warp.
+
+    int currentNumberOfEnemies;
 
     void Awake(){
         if (instance == null)
@@ -37,7 +41,7 @@ public class LevelGeneration : MonoBehaviour {
         //Debug.Log("Level Generation Created");
         DontDestroyOnLoad(gameObject);
         level = 0;
-
+        currentNumberOfEnemies = 0;
         InitLevel();
     }
 
@@ -48,7 +52,7 @@ public class LevelGeneration : MonoBehaviour {
         if (this != instance)
             return;
         //Debug.Log("Loading Level " + level);
-        numberOfRooms = 10 + level++;
+        numberOfRooms = 4 + level++;
         if (numberOfRooms > 50)
             numberOfRooms = 50;
         InitLevel();
@@ -158,6 +162,24 @@ public class LevelGeneration : MonoBehaviour {
         }
     }
 
+
+    public void addEnemies(int amount){
+        currentNumberOfEnemies += amount;
+    }
+
+    public void killEnemy(){
+        currentNumberOfEnemies--;
+    }
+
+    public void IsClearOfEnemies(){
+        if (currentNumberOfEnemies < 0){
+            Debug.Log("Hmm... We have negative enemies right now. This shouldn't be the case.");
+            return;
+        }
+        if (currentNumberOfEnemies == 0)
+            return true;
+        return false;
+    }
 
     //This method draws the minimap. This may or may not be actually used; Ignore for now.
     void DrawMap(){
