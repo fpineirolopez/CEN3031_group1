@@ -17,6 +17,22 @@ public class Player_Health : MonoBehaviour
 
     public UnityEngine.UI.Slider health_bar;        // healthbar UI
 
+    public static Player_Health instance = null;
+
+     void Awake()
+     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+     }
+
     void Start()
     {
         // Initialize our hp
