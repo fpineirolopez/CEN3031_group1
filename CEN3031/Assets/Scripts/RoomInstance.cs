@@ -35,7 +35,7 @@ public class RoomInstance : MonoBehaviour {
     [SerializeField]
     GameObject exitObject;
 
-    Color black = new Color(0, 0, 0);
+    Color black = new Color(0,0,0);
     Color white = new Color(1,1,1);
     Color blue = new Color(0,0,1);//Blue tiles refer to the wall tile. Use to place cracked wall at random.
     float tileSize = 16;
@@ -83,6 +83,12 @@ public class RoomInstance : MonoBehaviour {
             levelGenManager.clearedRoom();
         }
 
+        if (levelGenManager.IsClearOfEnemies()){
+            isCleared = true;
+            RemakeDoors();
+            levelGenManager.clearedRoom();
+        }
+
     }
 
     void OnTriggerEnter2D(Collider2D collid){//Use collider to detect when the player is in the room.
@@ -92,7 +98,7 @@ public class RoomInstance : MonoBehaviour {
         if (isCleared)
             return;
         MakeClosedDoors();
-        //Spawn enemies
+        SpawnEnemies();
     }
 
     void OnTriggerExit2D(Collider2D collid){
@@ -103,16 +109,19 @@ public class RoomInstance : MonoBehaviour {
 
 
     void SpawnEnemies(){
+        Debug.Log("FOO");
+        Debug.Log(enemySpawnLocations.Count);
         //It may be sensible to pause for ~.5 seconds. Thus you may want to yield IEnumerator...
-        /*Get instance of enemy spawner, most likely attached to the level generator gameobject.
-        Randomly select one of the enemy types.
-        int numberOfEnemies = instance.getCount(level);
-        levelGenManager.addEnemy(numberOfEnemies);
+        //Randomly select one of the enemy types.
+        int enemyIndex = Mathf.RoundToInt(Random.value * (enemies.Length - 1));
+        GameObject enemyPrefab = enemies[enemyIndex];
+        int numberOfEnemies = levelGenManager.getEnemyCount(enemyIndex);
+        levelGenManager.addEnemies(numberOfEnemies);
         for(int i = 0; i < numberOfEnemies; i++){
-            int index = Mathf.RoundToInt(Random.value * (EnemySpawnLocations.Count - 1))
-            Instantiate(enemyPrefab, enemySpawnLocations[index], Quaternion.Identity);
+            int index = Mathf.RoundToInt(Random.value * (enemySpawnLocations.Count - 1));
+            Instantiate(enemyPrefab, enemySpawnLocations[index], Quaternion.identity);
+            enemySpawnLocations.RemoveAt(index);
         }
-        */
     }
 
     void SpawnBoss(){
@@ -241,11 +250,11 @@ public class RoomInstance : MonoBehaviour {
 			return;
 		}
 
-
 		//find the color to match the pixel
 		foreach (ColorToGameObject mapping in mappings){
 			if (mapping.color.Equals(pixelColor)){
                 Vector3 spawnPos = positionFromTileGrid(x, y);
+                Debug.Log(mapping.color);
                 if (mapping.color.Equals(black)){
                     enemySpawnLocations.Insert(0, spawnPos);
                     return;

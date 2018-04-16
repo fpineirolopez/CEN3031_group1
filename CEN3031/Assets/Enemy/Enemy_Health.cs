@@ -15,6 +15,7 @@ public class Enemy_Health : MonoBehaviour {
         if (hp <= 0)
         {
             // Dead!
+            GameObject.Find("LevelGenerator").GetComponent<LevelGeneration>().killEnemy();
             Destroy(gameObject);
         }
     }

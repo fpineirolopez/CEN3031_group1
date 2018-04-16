@@ -204,6 +204,10 @@ public class LevelGeneration : MonoBehaviour {
         //Debug.Log(currentPercentage);
     }
 
+    public int getEnemyCount(int type){
+        return level;
+    }
+
     //This method draws the minimap. This may or may not be actually used; Ignore for now.
     void DrawMap(){
         foreach (Room room in rooms){

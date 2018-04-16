@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51be1fb1089bf094c83b8285ade042c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 16
+  Speed: 50
   shot_range: 400
   max_player_distance: 100
   Enemy_Projectile: {fileID: 1977284178099314, guid: a435bf2fa36c6aa419f5304c6ed9fc3b,
