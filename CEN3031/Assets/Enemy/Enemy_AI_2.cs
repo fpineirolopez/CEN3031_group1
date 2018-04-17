@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -42,7 +43,15 @@ public class Enemy_AI_2 : MonoBehaviour {
         GameObject player = GameObject.Find("Player");
         rb2d = GetComponent<Rigidbody2D>();
 
-        playerPos = new Vector2(player.GetComponent<Rigidbody2D>().position.x, player.GetComponent<Rigidbody2D>().position.y);//player position 
+        try
+        {
+            playerPos = new Vector2(player.GetComponent<Rigidbody2D>().position.x, player.GetComponent<Rigidbody2D>().position.y);//player position 
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Player has died!");
+        }
+        //playerPos = new Vector2(player.GetComponent<Rigidbody2D>().position.x, player.GetComponent<Rigidbody2D>().position.y);//player position 
         enemyPos = new Vector2(rb2d.position.x, rb2d.position.y);//enemy position
         enemy_movement_vector = Vector2.MoveTowards(enemyPos, playerPos, Speed * Time.deltaTime);
         enemy_move_direction = playerPos - enemyPos;
