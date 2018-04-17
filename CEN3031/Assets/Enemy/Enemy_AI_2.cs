@@ -12,7 +12,6 @@ public class Enemy_AI_2 : MonoBehaviour {
     public Vector3 projectile_offset_right = new Vector3(8f, -2f, 0f);
     public Vector3 projectile_offset_up = new Vector3(0f, 8f, 0f);
     public Vector3 projectile_offset_down = new Vector3(0f, -8f, 0f);
-    public float projectile_spawn_ydist;
     public int max_player_distance = 2;
     public GameObject Enemy_Projectile;
 
@@ -27,7 +26,7 @@ public class Enemy_AI_2 : MonoBehaviour {
     int last_saved_direction;
     float shot_timer;
     float move_timer;
-
+    Rigidbody2D rb2d;
 
     enum Direction { Up, Down, Left, Right };
     enum Status { Moving, Shooting };
@@ -41,9 +40,10 @@ public class Enemy_AI_2 : MonoBehaviour {
 
     void Update() {
         GameObject player = GameObject.Find("Player");
+        rb2d = GetComponent<Rigidbody2D>();
 
-        playerPos = new Vector2(player.transform.localPosition.x, player.transform.localPosition.y);//player position 
-        enemyPos = new Vector2(this.transform.localPosition.x, this.transform.localPosition.y);//enemy position
+        playerPos = new Vector2(player.GetComponent<Rigidbody2D>().position.x, player.GetComponent<Rigidbody2D>().position.y);//player position 
+        enemyPos = new Vector2(rb2d.position.x, rb2d.position.y);//enemy position
         enemy_movement_vector = Vector2.MoveTowards(enemyPos, playerPos, Speed * Time.deltaTime);
         enemy_move_direction = playerPos - enemyPos;
 
@@ -98,7 +98,8 @@ public class Enemy_AI_2 : MonoBehaviour {
                     can_move = false;
                 else { // otherwise, move toward the player
                     can_move = true;
-                    transform.position = enemy_movement_vector;
+                    //transform.position = enemy_movement_vector;
+                    rb2d.MovePosition(enemy_movement_vector);
                 }
 
                 last_saved_direction = curr_direction;
@@ -111,7 +112,9 @@ public class Enemy_AI_2 : MonoBehaviour {
                     can_move = false;
                 else { // otherwise, move toward the player
                     can_move = true;
-                    transform.position = enemy_movement_vector;
+                    //transform.position = enemy_movement_vector;
+                    rb2d.MovePosition(enemy_movement_vector);
+
                 }
 
                 last_saved_direction = curr_direction;
@@ -131,7 +134,9 @@ public class Enemy_AI_2 : MonoBehaviour {
             move_timer = WALK_TIME;
             curr_status = (int)Status.Moving;
             last_saved_direction = curr_direction;
-            transform.position = enemy_movement_vector;
+            //transform.position = enemy_movement_vector;
+            rb2d.MovePosition(enemy_movement_vector);
+
 
             UpdateAnimationWalk();
         }
