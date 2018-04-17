@@ -474,6 +474,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f9ba808a9b96454cada268e0be0785d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1479827469 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1026604134506714, guid: 9edb583ea9c78374f9c3e99b8b21ebf9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1719345286}
+--- !u!114 &1479827471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1479827469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8fb336e3ef845a480d9564b4049119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1628287167
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f288b11a4078a5040b0f6657b4b4e36f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfRooms: 10
+  numberOfRooms: 4
   roomWhiteObj: {fileID: 1975706786332780, guid: a1fe431a2bc4a2940b2503b8f131da18,
     type: 2}
   mapRoot: {fileID: 0}

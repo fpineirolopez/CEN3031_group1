@@ -18,13 +18,19 @@ public class LevelGeneration : MonoBehaviour {
 	public Room[,] rooms;//2D array of rooms to store general world info. This will be used to manage adjacency as well. This shouldn't actually be public but it is kept this way for testing purposes.
     List<Vector2> edgePositions;//List of all positions that have open neighbors for floor generation.
     int gridSizeX, gridSizeY;
-    public int numberOfRooms = 10;//We'll make this public, default to 10.
+    public int numberOfRooms = 4;//We'll make this public, default to 4.
 	public GameObject roomWhiteObj;//The central room object for drawing minimap. Calls MapSpriteSelector after being Instantiated.
 	public Transform mapRoot;
 
-    public static LevelGeneration instance = null;
+    public static LevelGeneration instance = null;//For singleton pattern, prevent this from being created over again.
    
     int level;
+    int roomsCleared;
+    float clearPercentage = .75f;//This percentage of the total rooms must be completed to clear the level = spawn the next floor warp.
+    float currentPercentage;
+    bool levelCleared;
+
+    int currentNumberOfEnemies;
 
     void Awake(){
         if (instance == null)
@@ -34,27 +40,44 @@ public class LevelGeneration : MonoBehaviour {
             return;
         }
 
-        //Debug.Log("Level Generation Created");
+        Debug.Log("Level Generation Created " + level);
         DontDestroyOnLoad(gameObject);
-        level = 0;
-
+        level = 1;
         InitLevel();
     }
 
-//	void Start () no longer needed.
+    public void Reset(){
+        level = 0;
+    }
+    //	void Start () no longer needed, though it may be set to work?
 
     //This is called every time the scene is reloaded.
     void OnLevelWasLoaded(int index){
         if (this != instance)
             return;
+        try{
+            GameObject.FindWithTag("Player").GetComponent<PlayerClass>().ResetPlayerPosition();//Resets player location to starting room.
+        }
+        catch(System.Exception e){
+            Debug.Log("Player deleted in previous scene, will make in new");
+        }
         //Debug.Log("Loading Level " + level);
-        numberOfRooms = 10 + level++;
+        numberOfRooms = 4 + level++;//This is where I am currently incrementing the level.
         if (numberOfRooms > 50)
             numberOfRooms = 50;
+        roomsCleared = 1;
+        levelCleared = false;
         InitLevel();
     }
 
+    //Turns out Update isn't needed. 
+
     void InitLevel(){
+        Debug.Log("Level " + level);
+        roomsCleared = 1;
+        currentNumberOfEnemies = 0;
+        currentPercentage = 0.0f;
+
         edgePositions = new List<Vector2>();//Initialize edge position list.
             
         gridSizeX = (int) worldSize.x;//Stores half-size of map, we'll hard code this to 4..
@@ -159,6 +182,57 @@ public class LevelGeneration : MonoBehaviour {
     }
 
 
+    public void addEnemies(int amount){//This script keeps track of the number of enemies currently in the scene. 
+        currentNumberOfEnemies += amount;
+    }
+
+    public void killEnemy(){//This is a method called by the enemy when it is destroyed.
+        currentNumberOfEnemies--;
+        Debug.Log("Enemies Left: " + currentNumberOfEnemies);
+    }
+
+    public bool IsClearOfEnemies(){//To check whether the room is cleared or not.
+        if (currentNumberOfEnemies < 0){
+            Debug.Log("Hmm... We have negative enemies right now. This shouldn't be the case.");
+            return false;
+        }
+        if (currentNumberOfEnemies == 0)
+            return true;
+        return false;
+    }
+
+    //Called when every room is cleared. If enough rooms are cleared, spawn the warp.
+    public void clearedRoom(){
+        if (levelCleared)
+            return;
+        roomsCleared++;
+        currentPercentage = (float)roomsCleared / numberOfRooms;
+        if (currentPercentage >= clearPercentage){
+            levelCleared = true;
+            rooms[gridSizeX, gridSizeY].roomInstance.SpawnWarp();
+        }
+        //Debug.Log(currentPercentage);
+    }
+
+    //Use function to get number of enemies.
+    public int getEnemyCount(int type){
+        float median_value = 0;
+        int random_value = 0;
+        if (level < 11)
+        {
+            median_value = (float)level;
+            random_value = (int)Mathf.Ceil(Random.Range(median_value * (1.0f - (.05f * level)) , median_value * (1.00f + (.05f * level)) ) );
+        }
+
+        else
+        {
+            median_value = 13;
+            random_value = (int)Mathf.Ceil(Random.Range(median_value * 0.50f, median_value * (1.5f)));
+        }
+
+        return random_value;
+    }
+
     //This method draws the minimap. This may or may not be actually used; Ignore for now.
     void DrawMap(){
         foreach (Room room in rooms){
@@ -178,5 +252,6 @@ public class LevelGeneration : MonoBehaviour {
             mapper.gameObject.transform.parent = mapRoot;
         }
     }
+
 
 }

@@ -15,8 +15,6 @@ public class Player_Health : MonoBehaviour
 
     public Health phealth = new Health(); // for offloading calculations to a testable interface
 
-    public UnityEngine.UI.Slider health_bar;        // healthbar UI
-
     public static Player_Health instance = null;
 
      void Awake()
@@ -38,13 +36,12 @@ public class Player_Health : MonoBehaviour
         // Initialize our hp
         current_hp = max_hp;
 
-        //Initialize with full health bar, setting the max value to whatever number we set the max health in the player asset
-        health_bar.maxValue = max_hp;
-        health_bar.value = current_hp;
         Can_Take_Damage = true;
         Damage_timer = .5f;
 
     }
+
+
 
     void Update()
     {
@@ -68,7 +65,6 @@ public class Player_Health : MonoBehaviour
             //Get the health int based on input
             current_hp = phealth.health_calculator(current_hp, damageCount);
 
-            health_bar.value = current_hp;  //update healthbar
 
             if (current_hp <= 0 && !isDead)
             {
@@ -103,6 +99,7 @@ public class Player_Health : MonoBehaviour
     {
         isDead = true; // set to true
         Destroy(gameObject); // destroy player
+        GameObject.Find("Level Generator").GetComponent<LevelGeneration>().Reset();
         SceneManager.LoadScene("GameOver");
     }
 }
