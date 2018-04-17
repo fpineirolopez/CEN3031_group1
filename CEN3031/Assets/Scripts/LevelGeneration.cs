@@ -60,6 +60,7 @@ public class LevelGeneration : MonoBehaviour {
         }
         catch(System.Exception e){
             Debug.Log("Player deleted in previous scene, will make in new");
+            return;//For the moment just return here.
         }
         //Debug.Log("Loading Level " + level);
         numberOfRooms = 4 + level++;//This is where I am currently incrementing the level.
