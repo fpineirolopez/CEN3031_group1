@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour {
 
@@ -47,7 +48,8 @@ public class PauseMenu : MonoBehaviour {
     void Pause()
     {
         PauseMenuUI.SetActive(true);
-        resumeButton.OnSelect(null); // highlights Resume button when opening pause menu
+        resumeButton.OnSelect(null);  // highlights Resume button when opening pause menu
+        EventSystem.current.SetSelectedGameObject(EventSystem.current.firstSelectedGameObject);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
