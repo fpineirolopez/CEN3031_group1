@@ -8,14 +8,20 @@ public class Enemy_AI_2 : MonoBehaviour {
     public int shot_range = 2;
     public const float SHOT_TIME = .5f;
     public const float WALK_TIME = 1f;
+    public Vector3 projectile_offset_left = new Vector3(-8f, -2f, 0f);
+    public Vector3 projectile_offset_right = new Vector3(8f, -2f, 0f);
+    public Vector3 projectile_offset_up = new Vector3(0f, 8f, 0f);
+    public Vector3 projectile_offset_down = new Vector3(0f, -8f, 0f);
+    public float projectile_spawn_ydist;
     public int max_player_distance = 2;
     public GameObject Enemy_Projectile;
 
 
-    Vector2 playerPos, enemyPos, enemy_movement_vector, enemy_shooting_direction, enemy_move_direction;
+    Vector2 playerPos, enemyPos, enemy_movement_vector, enemy_move_direction;
     Animator animator;
     bool can_move = true;
     bool in_range = false;
+    bool has_fired_shot;
     int curr_direction;
     int curr_status;
     int last_saved_direction;
@@ -66,11 +72,18 @@ public class Enemy_AI_2 : MonoBehaviour {
         if (in_range) {
             if (shot_timer == SHOT_TIME && curr_status == (int)(Status.Shooting)) { // If in range and not already shooting, start firing a projectile
                 can_move = false; // movement is disabled during firing
-                FireProjectile(); // Creates projectile and changes animation
+                has_fired_shot = false; // delay firing shot til proper point in animation
+                UpdateAnimationAttack();
                 shot_timer -= Time.deltaTime; // begin decrementing timer
             }
             else if (shot_timer != SHOT_TIME && curr_status == (int)(Status.Shooting)) { // projectile is already being fired, continue doing nothing
                 shot_timer -= Time.deltaTime;
+
+                // Check if it is time to create the shot projectile
+                if (shot_timer <= SHOT_TIME - .3 && !has_fired_shot) {
+                    FireProjectile(); // Creates projectile and changes animation
+                    has_fired_shot = true; // used to avoid duplicate projectile creation
+                }
 
                 // Reset timer if below zero, and enter walking state
                 if (shot_timer <= 0) {
@@ -125,20 +138,47 @@ public class Enemy_AI_2 : MonoBehaviour {
     }
 
     void FireProjectile() {
+
+        //ResetAnimationController();
+
+        GameObject bullet = (GameObject)Instantiate(Enemy_Projectile);
+
+        // Spawn bullet with offset depending on direction
+        if (last_saved_direction == (int)(Direction.Up)) {
+            bullet.transform.position = transform.position + projectile_offset_up;
+        }
+        else if (last_saved_direction == (int)(Direction.Down)) {
+            bullet.transform.position = transform.position + projectile_offset_down;
+        }
+        else if (last_saved_direction == (int)(Direction.Left)) {
+            bullet.transform.position = transform.position + projectile_offset_left;
+        }
+        else if (last_saved_direction == (int)(Direction.Right)) {
+            bullet.transform.position = transform.position + projectile_offset_right;
+        }
+
+        // Aim at player
         GameObject player = GameObject.Find("Player");
+        Vector2 enemy_shooting_direction = player.transform.position - bullet.transform.position;
+        bullet.GetComponent<Enemy_Projectile>().setDir(enemy_shooting_direction);
 
-        UpdateAnimationAttack();
+    }
 
-        if (player != null) {
-            GameObject bullet = (GameObject)Instantiate(Enemy_Projectile);
-            //initial pos
-            bullet.transform.position = transform.position;
-            Debug.Log(transform.position);
+    void UpdateAnimationAttack() {
+        ResetAnimationController();
 
-            //aim at player
-            enemy_shooting_direction = player.transform.position - bullet.transform.position;
-            bullet.GetComponent<Enemy_Projectile>().setDir(enemy_shooting_direction);
-
+        // Change animation depending on direction
+        if (last_saved_direction == (int)(Direction.Up)) {
+            animator.SetBool("au", true);
+        }
+        else if (last_saved_direction == (int)(Direction.Down)) {
+            animator.SetBool("ad", true);
+        }
+        else if (last_saved_direction == (int)(Direction.Left)) {
+            animator.SetBool("al", true);
+        }
+        else if (last_saved_direction == (int)(Direction.Right)) {
+            animator.SetBool("ar", true);
         }
     }
 
@@ -162,29 +202,6 @@ public class Enemy_AI_2 : MonoBehaviour {
         else if (curr_direction == (int)(Direction.Right))
         {
             animator.SetBool("wr", true);
-        }
-    }
-
-    void UpdateAnimationAttack()
-    {
-        ResetAnimationController();
-
-        // Change animation appropriately
-        if (last_saved_direction == (int)(Direction.Up))
-        {
-            animator.SetBool("au", true);
-        }
-        else if (last_saved_direction == (int)(Direction.Down))
-        {
-            animator.SetBool("ad", true);
-        }
-        else if (last_saved_direction == (int)(Direction.Left))
-        {
-            animator.SetBool("al", true);
-        }
-        else if (last_saved_direction == (int)(Direction.Right))
-        {
-            animator.SetBool("ar", true);
         }
     }
 
