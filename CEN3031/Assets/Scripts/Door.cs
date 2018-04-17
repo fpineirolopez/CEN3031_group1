@@ -37,7 +37,7 @@ public class Door : MonoBehaviour {
         //16*3 might overshoot a bit, but the overshoot amount should feel fairly trivial, but it's better than undershooting.
         //This is subject to change with the new graphics as they are in different dimensions.
         if (dir == 1 || dir == 2){
-            playerMove.y = SA.gutterSize.y + 16*3;//Move by 3 units further than it should be to ensure thatt the player will not collide with the door collider in the next room.
+            playerMove.y = SA.gutterSize.y + 16*3;//Move by 3 units further than it should be to ensure that the player will not collide with the door collider in the next room.
         }
         else{
             playerMove.x = SA.gutterSize.x + 16*3;

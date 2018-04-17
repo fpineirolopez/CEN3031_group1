@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SheetAssigner : MonoBehaviour {
 	[SerializeField]
-	Texture2D[] sheetsNormal;//Takes in a set of room templates to choose the room layout from. This can be modified in MANY ways.
+	Texture2D[] sheetsNormal;//Takes in a set of room templates to choose the room layout from. 
 	[SerializeField]
 	GameObject[] RoomObj;//Stores the floor of the room which is what also stands as the 'root' of the room. 
     //Planning on changing to an array of room templates to choose room layout.
@@ -27,12 +27,12 @@ public class SheetAssigner : MonoBehaviour {
 
 			//find position to place room
 			Vector3 pos = new Vector3(room.gridPos.x * (roomDimensions.x + gutterSize.x), room.gridPos.y * (roomDimensions.y + gutterSize.y), 0);
-            RoomInstance myRoom = Instantiate(RoomObj[rootIndex], pos, Quaternion.identity).GetComponent<RoomInstance>();
+            room.roomInstance = Instantiate(RoomObj[rootIndex], pos, Quaternion.identity).GetComponent<RoomInstance>();
             if (room.type == 1){
-                myRoom.Setup(sheetsNormal[0], room.gridPos, room.type, room.doorTop, room.doorBot, room.doorLeft, room.doorRight);
+                room.roomInstance.Setup(sheetsNormal[0], room.gridPos, room.type, room.doorTop, room.doorBot, room.doorLeft, room.doorRight);
             }
             else{
-			    myRoom.Setup(sheetsNormal[index], room.gridPos, room.type, room.doorTop, room.doorBot, room.doorLeft, room.doorRight);
+                room.roomInstance.Setup(sheetsNormal[index], room.gridPos, room.type, room.doorTop, room.doorBot, room.doorLeft, room.doorRight);
             }
 		}
 	}

@@ -11,6 +11,9 @@ public class Room {
 	public Vector2 gridPos;
 	public int type, gridSizeX, gridSizeY;
 	public bool doorTop, doorBot, doorLeft, doorRight;//These values default to 0.
+
+    public RoomInstance roomInstance;
+
     public Room(Vector2 _gridPos, int _type){
 		gridPos = _gridPos;
 		type = _type;
