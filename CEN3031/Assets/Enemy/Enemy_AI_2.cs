@@ -16,6 +16,8 @@ public class Enemy_AI_2 : MonoBehaviour {
     public int max_player_distance = 2;
     public GameObject Enemy_Projectile;
 
+    public GameObject Corpse;
+
 
     Vector2 playerPos, enemyPos, enemy_movement_vector, enemy_move_direction;
     Animator animator;
@@ -229,5 +231,12 @@ public class Enemy_AI_2 : MonoBehaviour {
         animator.SetBool("ad", false);
         animator.SetBool("al", false);
         animator.SetBool("ar", false);
+    }
+
+    void OnDestroy()
+    {
+        GameObject deadboi = (GameObject)Instantiate(Corpse);
+
+        deadboi.transform.position = this.transform.position;
     }
 }
