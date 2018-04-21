@@ -20,7 +20,7 @@ public class Shot : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.tag == "Enviroment"))
+        if ((collision.tag == "Enviroment") || (collision.tag == "Box"))
         {
             Destroy(gameObject);
         }

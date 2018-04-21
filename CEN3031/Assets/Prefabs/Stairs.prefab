@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4328112728892824}
   - component: {fileID: 212751795096595224}
   - component: {fileID: 61786701490418914}
+  - component: {fileID: 114314209810748986}
   m_Layer: 0
   m_Name: Stairs
   m_TagString: Untagged
@@ -57,7 +58,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 16, y: 16}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -66,6 +67,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 16, y: 16}
   m_EdgeRadius: 0
+--- !u!114 &114314209810748986
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1108441890694694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151992b949543464ea20fc9aa8cb2fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212751795096595224
 SpriteRenderer:
   m_ObjectHideFlags: 1

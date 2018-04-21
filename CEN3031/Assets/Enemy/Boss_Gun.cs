@@ -54,10 +54,10 @@ public class Boss_Gun : MonoBehaviour {
             Vector2 direction4 = player.transform.position - bullet4.transform.position;
             Vector2 direction5 = player.transform.position - bullet5.transform.position;
 
-            direction1 = direction1 + Vector2.up;
-            direction2 = direction2 + Vector2.up + Vector2.up;
-            direction3 = direction3 + Vector2.down;
-            direction4 = direction4 + Vector2.down + Vector2.down;
+            direction1 = direction1 + 30*(Vector2.up);
+            direction2 = direction2 + 15*(Vector2.up);
+            direction3 = direction3 + 15*(Vector2.down);
+            direction4 = direction4 + 30*(Vector2.down);
 
 
             bullet1.GetComponent<Enemy_Projectile>().setDir(direction1);

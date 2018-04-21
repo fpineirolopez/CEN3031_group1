@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50445404186409634}
   - component: {fileID: 114871886597802170}
   - component: {fileID: 61446587056383888}
+  - component: {fileID: 95227528027148774}
   m_Layer: 0
   m_Name: Enemy_Mage_Projectile
   m_TagString: Mage_projectile
@@ -57,7 +58,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -88,6 +89,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
+--- !u!95 &95227528027148774
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1046563648037066}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 20a5751e378773d49a4cfc8264413b9e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114871886597802170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,9 +117,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89605fd5e82295a4886d9f3640a4301e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 70
-  lifespan: 15
-  damage: 5
+  speed: 35
+  lifespan: 5
+  followsPlayer: 1
+  damage: 4
 --- !u!212 &212056669220841060
 SpriteRenderer:
   m_ObjectHideFlags: 1
