@@ -171,11 +171,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 40
   shot_range: 400
+  SHOT_TIME: 1
+  WALK_TIME: 2
   projectile_offset_left: {x: -8, y: -2, z: 0}
   projectile_offset_right: {x: 8, y: -2, z: 0}
   projectile_offset_up: {x: 0, y: 8, z: 0}
   projectile_offset_down: {x: 0, y: -8, z: 0}
-  max_player_distance: 100
+  max_player_distance: 50
   Enemy_Projectile: {fileID: 1046563648037066, guid: 7482d9991b75b9444a2fd87df0c78d2f,
     type: 2}
 --- !u!114 &114271684201155830
