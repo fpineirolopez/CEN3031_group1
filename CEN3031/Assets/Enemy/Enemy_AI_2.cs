@@ -7,8 +7,8 @@ public class Enemy_AI_2 : MonoBehaviour {
 
     public float Speed;
     public int shot_range = 2;
-    public const float SHOT_TIME = .5f;
-    public const float WALK_TIME = 1f;
+    public float SHOT_TIME = .5f;
+    public float WALK_TIME = 1f;
     public Vector3 projectile_offset_left = new Vector3(-8f, -2f, 0f);
     public Vector3 projectile_offset_right = new Vector3(8f, -2f, 0f);
     public Vector3 projectile_offset_up = new Vector3(0f, 8f, 0f);

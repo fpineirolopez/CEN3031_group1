@@ -188,7 +188,7 @@ MonoBehaviour:
   projectile_offset_right: {x: 8, y: -2, z: 0}
   projectile_offset_up: {x: 0, y: 8, z: 0}
   projectile_offset_down: {x: 0, y: -8, z: 0}
-  max_player_distance: 50
+  max_player_distance: 15
   Enemy_Projectile: {fileID: 1977284178099314, guid: a435bf2fa36c6aa419f5304c6ed9fc3b,
     type: 2}
 --- !u!114 &114653019131001238
