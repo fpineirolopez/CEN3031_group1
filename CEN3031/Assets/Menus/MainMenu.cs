@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour
     {
         anim.SetBool("Fade", true);
         yield return new WaitUntil(() => black.color.a == 1);
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("Main");
     }
 
 }

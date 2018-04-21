@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour {
 
@@ -9,6 +12,9 @@ public class PauseMenu : MonoBehaviour {
     public GameObject PauseMenuUI; //used for bringing up UI
 
     public UnityEngine.UI.Button resumeButton; //used  for highlighting first button in pause menu and be able to navigate it with the keys
+
+    public Image black;
+    public Animator anim;
 
     //This is called when this script is loaded.
     void Start(){
@@ -42,16 +48,24 @@ public class PauseMenu : MonoBehaviour {
     void Pause()
     {
         PauseMenuUI.SetActive(true);
-        resumeButton.OnSelect(null); // highlights Resume button when opening pause menu
+        resumeButton.OnSelect(null);  // highlights Resume button when opening pause menu
+        EventSystem.current.SetSelectedGameObject(EventSystem.current.firstSelectedGameObject);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
 
-    //Exits the game. Displays a console message so that we know it is working within Unity
+    //Exits the game to main menu
     public void QuitGame()
     {
-        Debug.Log("QUIT!");
-        Application.Quit();
+        Time.timeScale = 1f;
+        StartCoroutine(Fading());
+    }
+
+    IEnumerator Fading()
+    {
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => black.color.a == 1);
+        SceneManager.LoadScene("MainMenu");
     }
 
 }

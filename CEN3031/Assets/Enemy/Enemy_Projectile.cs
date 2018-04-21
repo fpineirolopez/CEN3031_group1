@@ -5,8 +5,10 @@ using UnityEngine;
 public class Enemy_Projectile : MonoBehaviour {
 
     public float speed;
+    public float lifespan = 5; // how long before the projectile is automatically destroyed
     Vector2 dir;//projectile direction
     bool isReady;//dir set
+    float destroyTimer;
     public int damage = 1; // damage value ***ONLY ADDED THIS FOR TESTING HEALTH BAR, FEEL FREE TO MODIFY IT***
 
     void Awake()
@@ -17,7 +19,7 @@ public class Enemy_Projectile : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        destroyTimer = lifespan;
 	}
 
     public void setDir(Vector2 direction)
@@ -33,19 +35,25 @@ public class Enemy_Projectile : MonoBehaviour {
         if (isReady)
         {
             Vector2 position = transform.position;
-
             position += dir * speed * Time.deltaTime;
-
             transform.position = position; // update position of projectile
-
-
         }
+
+        destroyTimer -= Time.deltaTime;
+        if (destroyTimer <= 0)
+            Destroy(gameObject);
 
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if((collision.tag == "Player") || (collision.tag == "Enviroment"))
+
+        if((collision.tag == "Player") || (collision.tag == "Enviroment") && this.gameObject.tag == "Mage_projectile")
+        {
+            Destroy(gameObject);
+        }
+
+        if((collision.tag == "Player") || (collision.tag == "Enviroment") || collision.tag == "Box" && this.gameObject.tag != "Mage_projectile")
         {
             Destroy(gameObject);
         }
