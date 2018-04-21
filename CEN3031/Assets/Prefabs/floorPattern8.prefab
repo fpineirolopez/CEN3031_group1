@@ -127,7 +127,7 @@ MonoBehaviour:
     prefab: {fileID: 1760203816886858, guid: 496b2d03b25314b0c9084fe218f7f8df, type: 2}
   - color: {r: 0.53333336, g: 0.53333336, b: 0.53333336, a: 1}
     prefab: {fileID: 1519145495275324, guid: b726d3c9532f7461c93236c3e8dd42c3, type: 2}
-  - color: {r: 0, g: 0, b: 0, a: 0}
+  - color: {r: 0, g: 0, b: 0, a: 1}
     prefab: {fileID: 0}
   - color: {r: 1, g: 1, b: 1, a: 1}
     prefab: {fileID: 0}
@@ -137,10 +137,13 @@ MonoBehaviour:
     prefab: {fileID: 1613699296495936, guid: a160ac33fbd5f43fb9139d9bc4e2d1ba, type: 2}
   crackedWall: {fileID: 1108557861510602, guid: 88d4aaf8c6ad64f3a98b26463507b529,
     type: 2}
-  enemies: []
+  enemies:
+  - {fileID: 1290559036249104, guid: d8fbdf0dbaeb47e489ea420ccdef308e, type: 2}
+  - {fileID: 1415339547113146, guid: 3e8ce85734e8a4349873dcc0d1a8273f, type: 2}
   cornerWalls:
   - {fileID: 1994392611621056, guid: 79ac22d7258224c2da51a3ef8cb742b6, type: 2}
   - {fileID: 1613699296495936, guid: a160ac33fbd5f43fb9139d9bc4e2d1ba, type: 2}
+  exitObject: {fileID: 1108441890694694, guid: 29c535f3ee9e84e18be1786fb0d3d555, type: 2}
 --- !u!212 &212057152932133448
 SpriteRenderer:
   m_ObjectHideFlags: 1

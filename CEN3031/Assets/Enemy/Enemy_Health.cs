@@ -6,16 +6,23 @@ public class Enemy_Health : MonoBehaviour {
 
     // Total hitpoints
     public int hp = 5;
+    bool dead = false;
 
     // Inflicts damage and check if the object should be destroyed
     public void Damage(int damageCount)
     {
+        if (dead)
+            return;
         hp -= damageCount;
 
         if (hp <= 0)
         {
             // Dead!
+            dead = true;
+            Debug.Log("Killed enemy");
             Destroy(gameObject);
+            GameObject.Find("Level Generator").GetComponent<LevelGeneration>().killEnemy();
+
         }
     }
 
