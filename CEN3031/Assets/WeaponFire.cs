@@ -88,6 +88,9 @@ public class WeaponFire : MonoBehaviour {
             {
                 move.direction = this.transform.up; // towards in 2D space is the right of the sprite
             }
+
+            FindObjectOfType<AudioManager>().Play("Player_Attack");
+
         }
     }
 
@@ -118,6 +121,9 @@ public class WeaponFire : MonoBehaviour {
             {
                 move.direction = -(this.transform.up); // towards in 2D space is the right of the sprite
             }
+
+            FindObjectOfType<AudioManager>().Play("Player_Attack");
+
         }
     }
 
@@ -148,6 +154,9 @@ public class WeaponFire : MonoBehaviour {
             {
                 move.direction = this.transform.right; // towards in 2D space is the right of the sprite
             }
+
+            FindObjectOfType<AudioManager>().Play("Player_Attack");
+
         }
     }
 
@@ -178,6 +187,9 @@ public class WeaponFire : MonoBehaviour {
             {
                 move.direction = -(this.transform.right); // towards in 2D space is the right of the sprite
             }
+
+            FindObjectOfType<AudioManager>().Play("Player_Attack");
+
         }
     }
 
