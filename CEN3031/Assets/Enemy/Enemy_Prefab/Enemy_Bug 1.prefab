@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4564860566727546}
   - component: {fileID: 212222572457922456}
   - component: {fileID: 50899976408718676}
-  - component: {fileID: 114143068603066212}
+  - component: {fileID: 114171699275729498}
   - component: {fileID: 114457223948535780}
   - component: {fileID: 114653019131001238}
   - component: {fileID: 95150630458111644}
@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 60317064614526798}
   m_Layer: 0
   m_Name: Enemy_Bug 1
-  m_TagString: Untagged
+  m_TagString: Bug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,7 +159,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114143068603066212
+--- !u!114 &114171699275729498
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1290559036249104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2635be296968da14cb56a2dd26b0fead, type: 3}
+  m_Script: {fileID: 11500000, guid: d39f81049a8ee5347ad97b7a0445bb46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
@@ -184,6 +184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 16
   shot_range: 200
+  SHOT_TIME: 0.5
+  WALK_TIME: 1
   projectile_offset_left: {x: -8, y: -2, z: 0}
   projectile_offset_right: {x: 8, y: -2, z: 0}
   projectile_offset_up: {x: 0, y: 8, z: 0}
