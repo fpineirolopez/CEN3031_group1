@@ -29,7 +29,7 @@ public class Door : MonoBehaviour {
         }
         */
         GameObject.FindWithTag("MainCamera").GetComponent<CameraMovement>().MoveCameraOneRoom(dir);//Move the camera.
-
+        FindObjectOfType<AudioManager>().Play("OpenDoor");
         SheetAssigner SA = FindObjectOfType<SheetAssigner>();//Find SheetAssigner that holds overall room information.
         float posOrNeg;
         Vector2 playerMove = Vector2.zero;

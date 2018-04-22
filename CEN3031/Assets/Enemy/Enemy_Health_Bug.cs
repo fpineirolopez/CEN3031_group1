@@ -25,6 +25,7 @@ public class Enemy_Health_Bug : MonoBehaviour
             GameObject.Find("Level Generator").GetComponent<LevelGeneration>().killEnemy();
             GameObject.Find("Score_num").GetComponent<Score_num>().set_score(25); //update score!!
             FindObjectOfType<AudioManager>().Play("EnemyBugDead");
+            return;
 
         }
 

@@ -11,6 +11,9 @@ public class LevelSwap : MonoBehaviour {
         if (collid.gameObject.tag != "Player")
             return;
         else
+        {
+            FindObjectOfType<AudioManager>().Play("EnterStairs");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }

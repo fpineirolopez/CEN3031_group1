@@ -50,6 +50,11 @@ public class PlayerClass : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void Start()
+    {
+        FindObjectOfType<AudioManager>().Play("BackgroundMusic");
+    }
+
     //set player to origin - 0,0
     //Reset the player origin at the start of a new level
     public void ResetPlayerPosition()

@@ -24,7 +24,7 @@ public class Enemy_Health : MonoBehaviour {
             GameObject.Find("Level Generator").GetComponent<LevelGeneration>().killEnemy();
             GameObject.Find("Score_num").GetComponent<Score_num>().set_score(50); //update score!!
             FindObjectOfType<AudioManager>().Play("EnemyMageDead");
-
+            return;
         }
 
         FindObjectOfType<AudioManager>().Play("EnemyMageHit");
