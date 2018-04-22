@@ -685,6 +685,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114110330079912958, guid: 90b9ebc9e704c9b4e9bb188c320f4918,
+        type: 2}
+      propertyPath: sounds.Array.size
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4875525939493778, guid: 90b9ebc9e704c9b4e9bb188c320f4918, type: 2}
       propertyPath: m_LocalPosition.x
       value: -50.21169
@@ -716,6 +721,86 @@ Prefab:
     - target: {fileID: 4875525939493778, guid: 90b9ebc9e704c9b4e9bb188c320f4918, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114110330079912958, guid: 90b9ebc9e704c9b4e9bb188c320f4918,
+        type: 2}
+      propertyPath: sounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5b28a7ee16731f542adb5d7e8cefa198, type: 3}
+    - target: {fileID: 114110330079912958, guid: 90b9ebc9e704c9b4e9bb188c320f4918,
+        type: 2}
+      propertyPath: sounds.Array.data[4].name
+      value: EnterStairs
+      objectReference: {fileID: 0}
+    - target: {fileID: 114110330079912958, guid: 90b9ebc9e704c9b4e9bb188c320f4918,
+        type: 2}
+      propertyPath: sounds.Array.data[4].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114110330079912958, guid: 90b9ebc9e704c9b4e9bb188c320f4918,
+        type: 2}
+      propertyPath: sounds.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2e96e0d8150d6d24b8f9f58851a29f94, type: 3}
+    - target: {fileID: 114110330079912958, guid: 90b9ebc9e704c9b4e9bb188c320f4918,
+        type: 2}
+      propertyPath: sounds.Array.data[5].name
+      value: OpenDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 114110330079912958, guid: 90b9ebc9e704c9b4e9bb188c320f4918,
+        type: 2}
+      propertyPath: sounds.Array.data[5].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114110330079912958, guid: 90b9ebc9e704c9b4e9bb188c320f4918,
+        type: 2}
+      propertyPath: sounds.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6886eb54cb27d0243a72a7d0398a5c57, type: 3}
+    - target: {fileID: 114110330079912958, guid: 90b9ebc9e704c9b4e9bb188c320f4918,
+        type: 2}
+      propertyPath: sounds.Array.data[6].name
+      value: EnemyMageHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 114110330079912958, guid: 90b9ebc9e704c9b4e9bb188c320f4918,
+        type: 2}
+      propertyPath: sounds.Array.data[6].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114110330079912958, guid: 90b9ebc9e704c9b4e9bb188c320f4918,
+        type: 2}
+      propertyPath: sounds.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e7a1b8a2dcdb0634089a77821e8636a7, type: 3}
+    - target: {fileID: 114110330079912958, guid: 90b9ebc9e704c9b4e9bb188c320f4918,
+        type: 2}
+      propertyPath: sounds.Array.data[7].name
+      value: EnemyMageDead
+      objectReference: {fileID: 0}
+    - target: {fileID: 114110330079912958, guid: 90b9ebc9e704c9b4e9bb188c320f4918,
+        type: 2}
+      propertyPath: sounds.Array.data[7].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114110330079912958, guid: 90b9ebc9e704c9b4e9bb188c320f4918,
+        type: 2}
+      propertyPath: sounds.Array.data[8].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c6780b946d0afb47b4a5f7b11fa2eb7, type: 3}
+    - target: {fileID: 114110330079912958, guid: 90b9ebc9e704c9b4e9bb188c320f4918,
+        type: 2}
+      propertyPath: sounds.Array.data[8].name
+      value: BackgroundMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 114110330079912958, guid: 90b9ebc9e704c9b4e9bb188c320f4918,
+        type: 2}
+      propertyPath: sounds.Array.data[8].volume
+      value: 0.696
+      objectReference: {fileID: 0}
+    - target: {fileID: 114110330079912958, guid: 90b9ebc9e704c9b4e9bb188c320f4918,
+        type: 2}
+      propertyPath: sounds.Array.data[8].loop
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90b9ebc9e704c9b4e9bb188c320f4918, type: 2}
