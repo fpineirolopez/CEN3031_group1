@@ -191,6 +191,7 @@ MonoBehaviour:
   max_player_distance: 15
   Enemy_Projectile: {fileID: 1977284178099314, guid: a435bf2fa36c6aa419f5304c6ed9fc3b,
     type: 2}
+  Corpse: {fileID: 1373247685072212, guid: 4b7f49b18d99d964a87c2e849c99d8f7, type: 2}
 --- !u!114 &114653019131001238
 MonoBehaviour:
   m_ObjectHideFlags: 1

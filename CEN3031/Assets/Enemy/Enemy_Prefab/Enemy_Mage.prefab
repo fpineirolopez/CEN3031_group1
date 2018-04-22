@@ -41,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1415339547113146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.9, y: -91.5, z: -18.509493}
+  m_LocalPosition: {x: -1.2635136, y: -63.566227, z: -18.509493}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -180,6 +180,7 @@ MonoBehaviour:
   max_player_distance: 50
   Enemy_Projectile: {fileID: 1046563648037066, guid: 7482d9991b75b9444a2fd87df0c78d2f,
     type: 2}
+  Corpse: {fileID: 1501824752154442, guid: f6a69aa0fe150cb4d8352a650fd5defc, type: 2}
 --- !u!114 &114271684201155830
 MonoBehaviour:
   m_ObjectHideFlags: 1
