@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Health : MonoBehaviour {
+public class Enemy_Health_Bug : MonoBehaviour
+{
 
     // Total hitpoints
     public int hp = 5;
@@ -22,8 +23,7 @@ public class Enemy_Health : MonoBehaviour {
             Debug.Log("Killed enemy");
             Destroy(gameObject);
             GameObject.Find("Level Generator").GetComponent<LevelGeneration>().killEnemy();
-            GameObject.Find("Score_num").GetComponent<Score_num>().set_score(50); //update score!!
-
+            GameObject.Find("Score_num").GetComponent<Score_num>().set_score(25); //update score!!
         }
     }
 
@@ -33,10 +33,10 @@ public class Enemy_Health : MonoBehaviour {
         Shot shot = otherCollider.gameObject.GetComponent<Shot>();
         if (shot != null)
         {
-                Damage(shot.dmg); //inflict damage
+            Damage(shot.dmg); //inflict damage
 
-                // Destroy the shot
-                Destroy(shot.gameObject); // Remember to always target the game object, otherwise you will just remove the script
+            // Destroy the shot
+            Destroy(shot.gameObject); // Remember to always target the game object, otherwise you will just remove the script
         }
     }
 

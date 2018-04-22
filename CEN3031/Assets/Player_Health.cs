@@ -100,6 +100,7 @@ public class Player_Health : MonoBehaviour
         isDead = true; // set to true
         Destroy(gameObject); // destroy player
         GameObject.Find("Level Generator").GetComponent<LevelGeneration>().Reset();//Reset the level gen.
+        GameObject.Find("Score_num").GetComponent<Score_num>().Reset_score(); //reset score
         SceneManager.LoadScene("GameOver");
     }
 }
