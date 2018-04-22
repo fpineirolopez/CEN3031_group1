@@ -224,6 +224,9 @@ public class RoomInstance : MonoBehaviour {
         //left door
         spawnPos = transform.position + Vector3.left*(roomSizeInTiles.y/2 * tileSize) - Vector3.left*(tileSize/2);
         ReplaceOpenDoor(spawnPos, doorLeft, 3);
+
+        FindObjectOfType<AudioManager>().Play("Door_Unlock");
+
     }
 
     //Places the doors again, this time by ignoring the walls unlike the PlaceOpenDoor method.
