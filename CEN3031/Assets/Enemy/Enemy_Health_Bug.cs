@@ -24,7 +24,12 @@ public class Enemy_Health_Bug : MonoBehaviour
             Destroy(gameObject);
             GameObject.Find("Level Generator").GetComponent<LevelGeneration>().killEnemy();
             GameObject.Find("Score_num").GetComponent<Score_num>().set_score(25); //update score!!
+            FindObjectOfType<AudioManager>().Play("EnemyBugDead");
+
         }
+
+        FindObjectOfType<AudioManager>().Play("EnemyBugHit");
+
     }
 
     void OnTriggerEnter2D(Collider2D otherCollider)
