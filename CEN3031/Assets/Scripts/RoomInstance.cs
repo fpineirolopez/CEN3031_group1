@@ -26,6 +26,8 @@ public class RoomInstance : MonoBehaviour {
 
     [SerializeField]
     GameObject[] enemies;
+    [SerializeField]
+    GameObject boss;
 
     GameObject[] doorInstances = new GameObject[4];
 
@@ -45,6 +47,7 @@ public class RoomInstance : MonoBehaviour {
 
     bool isCleared;//Boolean to check if this room has been cleared by the player.
     bool isInRoom;//Boolean to check if the player is currently inside of this room.
+    bool bossFlag;
 
     LevelGeneration levelGenManager;
 
@@ -66,6 +69,8 @@ public class RoomInstance : MonoBehaviour {
             isCleared = false;
 
         levelGenManager = GameObject.Find("Level Generator").GetComponent<LevelGeneration>();
+
+        bossFlag = false;
 
 		MakeDoors();
 		GenerateRoomTiles();
@@ -99,6 +104,11 @@ public class RoomInstance : MonoBehaviour {
         if (collid.gameObject.tag != "Player")
             return;
         isInRoom = true;
+        if (bossFlag){
+            MakeClosedDoors();
+            SpawnBoss();
+            return;
+        }
         if (isCleared)
             return;
         MakeClosedDoors();
@@ -112,6 +122,15 @@ public class RoomInstance : MonoBehaviour {
         isInRoom = false;
     }
 
+
+    public void setBossFlag(){
+        isCleared = false;
+        bossFlag = true;
+    }
+
+    public void removeBossFlag(){
+        bossFlag = false;
+    }
 
     //This spawsn enemies of one type by asking the level generator for values.
     void SpawnEnemies(){
@@ -131,8 +150,8 @@ public class RoomInstance : MonoBehaviour {
     }
 
     void SpawnBoss(){
-        //Fixed spawn location? Center?
-        //Instantiate(bossPrefab, center(?), Quaternion.Identity);
+        levelGenManager.addEnemies(1);
+        Instantiate(boss, Vector3.zero, Quaternion.identity);
     }
 
     //Exit will only spawn in the white space in the room template. As of now, it is only the first empty room.
