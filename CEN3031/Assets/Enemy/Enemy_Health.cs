@@ -7,6 +7,8 @@ public class Enemy_Health : MonoBehaviour {
     // Total hitpoints
     public int hp = 5;
     bool dead = false;
+    [SerializeField]
+    bool isBoss = false;
 
     // Inflicts damage and check if the object should be destroyed
     public void Damage(int damageCount)
@@ -20,6 +22,11 @@ public class Enemy_Health : MonoBehaviour {
             // Dead!
             dead = true;
             Debug.Log("Killed enemy");
+            if (isBoss){
+                Debug.Log("Killed Boss");
+                GameObject.Find("Level Generator").GetComponent<LevelGeneration>().killBoss();
+            }
+
             Destroy(gameObject);
             GameObject.Find("Level Generator").GetComponent<LevelGeneration>().killEnemy();
             GameObject.Find("Score_num").GetComponent<Score_num>().set_score(50); //update score!!

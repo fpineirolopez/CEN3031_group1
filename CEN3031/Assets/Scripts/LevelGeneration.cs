@@ -29,6 +29,7 @@ public class LevelGeneration : MonoBehaviour {
     float clearPercentage = .75f;//This percentage of the total rooms must be completed to clear the level = spawn the next floor warp.
     float currentPercentage;
     bool levelCleared;
+    bool bossSpawned, bossKilled;
 
     int currentNumberOfEnemies;
 
@@ -63,9 +64,25 @@ public class LevelGeneration : MonoBehaviour {
             return;//For the moment just return here.
         }
         //Debug.Log("Loading Level " + level);
-        numberOfRooms = 4 + level++;//This is where I am currently incrementing the level.
-        if (numberOfRooms > 50)
-            numberOfRooms = 50;
+
+        float median_value = 0;
+        int random_value = 0;
+        if (level < 11)
+        {
+            median_value = (float)level + 3;
+            random_value = (int)Mathf.Ceil(Random.Range(median_value * (1.0f - (.025f * level)), median_value * (1.00f + (.025f * level))));
+        }
+
+        else
+        {
+            median_value = 14;
+            random_value = (int)Mathf.Ceil(Random.Range(median_value * 0.75f, median_value * (1.25f)));
+        }
+
+        numberOfRooms = random_value;
+        if (numberOfRooms > 30)
+            numberOfRooms = 30;
+        level++;
         roomsCleared = 1;
         levelCleared = false;
         InitLevel();
@@ -74,6 +91,8 @@ public class LevelGeneration : MonoBehaviour {
     //Turns out Update isn't needed. 
 
     void InitLevel(){
+        bossSpawned = false;
+        bossKilled = false;
         Debug.Log("Level " + level);
         roomsCleared = 1;
         currentNumberOfEnemies = 0;
@@ -209,10 +228,20 @@ public class LevelGeneration : MonoBehaviour {
         roomsCleared++;
         currentPercentage = (float)roomsCleared / numberOfRooms;
         if (currentPercentage >= clearPercentage){
+            if (level % 3 == 0 && (!bossSpawned || !bossKilled)){
+                bossSpawned = true;
+                rooms[gridSizeX, gridSizeY].roomInstance.setBossFlag();
+                return;
+            }
             levelCleared = true;
             rooms[gridSizeX, gridSizeY].roomInstance.SpawnWarp();
         }
         //Debug.Log(currentPercentage);
+    }
+
+    public void killBoss(){
+        bossKilled = true;
+        rooms[gridSizeX, gridSizeY].roomInstance.removeBossFlag();
     }
 
     //Use function to get number of enemies.
