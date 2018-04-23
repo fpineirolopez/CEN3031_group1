@@ -100,8 +100,21 @@ public class Player_Health : MonoBehaviour
         isDead = true; // set to true
         Destroy(gameObject); // destroy player
         GameObject.Find("Level Generator").GetComponent<LevelGeneration>().Reset();//Reset the level gen.
-        GameObject.Find("Score_num").GetComponent<Score_num>().Reset_score(); //reset score
+        GameObject.Find("Score_num").GetComponent<Score_num>().Reset_score();//Reset the level gen
         FindObjectOfType<AudioManager>().Stop("BackgroundMusic");
         SceneManager.LoadScene("GameOver");
+    }
+
+    //when player clears a level, it regens 5 health points
+    public void Health_Regen() 
+    {
+        if (max_hp >= (current_hp + 5)) //check the regen won't go over max_hp
+        {
+            current_hp += 5;
+        }
+        else //otherwise raise it back to max_hp
+        {
+            current_hp = max_hp;
+        }
     }
 }
