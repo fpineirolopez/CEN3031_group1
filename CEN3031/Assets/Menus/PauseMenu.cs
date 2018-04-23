@@ -57,15 +57,20 @@ public class PauseMenu : MonoBehaviour {
     //Exits the game to main menu
     public void QuitGame()
     {
-        Time.timeScale = 1f;
-        StartCoroutine(Fading());
+        Time.timeScale = 1f; //reset time
+        Destroy(GameObject.FindGameObjectWithTag("Player")); // destroy player
+        GameObject.Find("Level Generator").GetComponent<LevelGeneration>().Reset();//Reset the level gen.
+        GameObject.Find("Score_num").GetComponent<Score_num>().Reset_score();//Reset the level gen
+        FindObjectOfType<AudioManager>().Stop("BackgroundMusic");
+        StartCoroutine(Fading()); //start fadeing before switching scene
     }
 
+    //Fade animations bewteen scenes
     IEnumerator Fading()
     {
-        anim.SetBool("Fade", true);
-        yield return new WaitUntil(() => black.color.a == 1);
-        SceneManager.LoadScene("MainMenu");
+        anim.SetBool("Fade", true); //start fade
+        yield return new WaitUntil(() => black.color.a == 1); //stop fade
+        SceneManager.LoadScene("MainMenu"); //switch scene
     }
 
 }

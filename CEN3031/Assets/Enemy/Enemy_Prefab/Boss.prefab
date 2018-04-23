@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 114033179860576114}
   - component: {fileID: 114695436531555636}
   - component: {fileID: 61052459252089764}
+  - component: {fileID: 95140531460149086}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -206,6 +207,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18, y: 18}
   m_EdgeRadius: 0
+--- !u!95 &95140531460149086
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1684051525833022}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 06699c7189221c14f9cee04cd1a0a746, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114033179860576114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -218,8 +236,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  Speed: 30
+  Speed: 15
   Distance_From_Player: 50
+  Boss_corpse: {fileID: 1966135878510436, guid: ea948218bc1ed2f418d2aa6757df9423,
+    type: 2}
 --- !u!114 &114262602610696980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -317,7 +337,7 @@ SpriteRenderer:
   m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300014, guid: 0315e53b3062b184bb819676b158c6d8, type: 3}
-  m_Color: {r: 0.5661765, g: 0.04995676, b: 0.04995676, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

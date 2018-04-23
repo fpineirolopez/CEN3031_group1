@@ -11,6 +11,10 @@ public class LevelSwap : MonoBehaviour {
         if (collid.gameObject.tag != "Player")
             return;
         else
+        {
+            FindObjectOfType<AudioManager>().Play("EnterStairs");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Health>().Health_Regen(); 
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }

@@ -10,6 +10,8 @@ TagManager:
   - ELaser
   - Mage_projectile
   - Box
+  - Bug
+  - Mage
   layers:
   - Default
   - TransparentFX

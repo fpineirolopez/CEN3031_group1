@@ -23,7 +23,7 @@ public class LevelGeneration : MonoBehaviour {
 	public Transform mapRoot;
 
     public static LevelGeneration instance = null;//For singleton pattern, prevent this from being created over again.
-   
+
     int level;
     int roomsCleared;
     float clearPercentage = .75f;//This percentage of the total rooms must be completed to clear the level = spawn the next floor warp.
@@ -254,5 +254,8 @@ public class LevelGeneration : MonoBehaviour {
         }
     }
 
-
+    //return the level number...Used for changing the level_num text
+    public int Get_Level(){
+        return level;
+    }
 }
