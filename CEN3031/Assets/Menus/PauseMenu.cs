@@ -60,7 +60,8 @@ public class PauseMenu : MonoBehaviour {
         Time.timeScale = 1f; //reset time
         Destroy(GameObject.FindGameObjectWithTag("Player")); // destroy player
         GameObject.Find("Level Generator").GetComponent<LevelGeneration>().Reset();//Reset the level gen.
-        GameObject.Find("Score_num").GetComponent<Score_num>().Reset_score(); //reset score
+        GameObject.Find("Score_num").GetComponent<Score_num>().Reset_score();//Reset the level gen
+        FindObjectOfType<AudioManager>().Stop("BackgroundMusic");
         StartCoroutine(Fading()); //start fadeing before switching scene
     }
 
